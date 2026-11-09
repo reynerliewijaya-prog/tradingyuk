@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tradoor | Gold Trading Community</title>
+<meta name="description" content="Tradoor adalah komunitas trading emas (XAU/USD) untuk belajar bersama: analisis harian, chart live, kalender berita high impact, dan diskusi trader.">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Cpath d='M9 4h9l5 2v22H9z' fill='none' stroke='%23b98a14' stroke-width='2.5'/%3E%3Cpath d='M12 20l4-4 3 2 4-5' fill='none' stroke='%23b98a14' stroke-width='2'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tradoor | Gold Trading Community">
+<meta property="og:description" content="Komunitas trading emas: chart XAU/USD live, berita high impact, kelas, dan diskusi.">
+<meta property="og:image" content="https://tradoor.com/logo.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tradoor | Gold Trading Community">
+<meta name="twitter:description" content="Komunitas trading emas: chart XAU/USD live, berita high impact, kelas, dan diskusi.">
+<meta name="twitter:image" content="https://tradoor.com/logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=DM+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: terang seperti logo. Urutan: hero komunitas, chart XAU/USD live, radar berita high impact, isi komunitas, cara gabung + formulir, open loker (sekunder), FAQ. */
+:root {
+  --paper: #ffffff;
+  --sand: #f7f4ec;
+  --ink: #1d1b17;
+  --ink-soft: #5d5849;
+  --gold: #b98a14;
+  --gold-deep: #85620c;
+  --gold-light: #e2bf5a;
+  --line: #e7e1d2;
+  --alert: #a3321f;
+  --alert-bg: #fbeeea;
+  --display: "Jost", "Futura", "Century Gothic", sans-serif;
+  --body: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.6; }
+a { color: inherit; }
+img { max-width: 100%; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+.wrap { max-width: 1160px; margin-inline: auto; padding-inline: max(16px, env(safe-area-inset-left, 0px)); }
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: var(--gold-deep); }
+h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; text-wrap: balance; line-height: 1.12; }
+h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); letter-spacing: .01em; }
+h3 { font-size: 1.22rem; font-weight: 500; letter-spacing: .02em; }
+p { margin: 0; }
+.band { background: var(--sand); }
+/* nav */
+.topbar { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.96); border-bottom: 1px solid var(--line); backdrop-filter: blur(6px); }
+.nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-family: var(--display); font-weight: 500; letter-spacing: .4em; font-size: 1.05rem; color: var(--gold-deep); }
+.nav ul { display: flex; gap: 24px; list-style: none; margin: 0; padding: 0; font-size: 14px; }
+.nav ul a { text-decoration: none; color: var(--ink-soft); }
+.nav ul a:hover { color: var(--gold-deep); }
+.btn { display: inline-flex; align-items: center; justify-content: center; font-family: var(--display); font-weight: 500; letter-spacing: .16em; text-transform: uppercase; font-size: 13px; padding: 14px 26px; border: 1px solid var(--gold-deep); background: linear-gradient(135deg, #d9b240, #a97a10); color: #fff; text-decoration: none; cursor: pointer; border-radius: 2px; }
+.btn:hover { background: linear-gradient(135deg, #e2bf5a, #b98a14); }
+.btn.ghost { background: transparent; color: var(--gold-deep); }
+.btn.ghost:hover { background: var(--sand); }
+.nav .btn { padding: 10px 18px; }
+/* hero */
+.hero { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(24px, 5vw, 64px); align-items: center; padding-block: clamp(36px, 7vw, 84px); }
+.hero > * { min-width: 0; }
+.hero h1 { font-size: clamp(2.3rem, 5.6vw, 4.2rem); font-weight: 300; margin-block: 16px 20px; }
+.hero h1 em { font-style: normal; font-weight: 500; color: var(--gold-deep); }
+.lead { color: var(--ink-soft); max-width: 48ch; font-size: 1.08rem; }
+.cta { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+.logo-box { display: flex; justify-content: center; }
+.logo-box img { width: 100%; max-width: 480px; height: auto; display: block; }
+.stats { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 40px; padding-top: 22px; border-top: 1px solid var(--line); }
+.stats b { display: block; font-family: var(--display); font-weight: 400; font-size: 1.6rem; color: var(--gold-deep); }
+.stats span { font-size: 13px; color: var(--ink-soft); }
+/* sections */
+.sec { padding-block: clamp(48px, 7vw, 88px); }
+.sec-head { max-width: 62ch; margin-bottom: 32px; }
+.sec-head h2 { margin-top: 10px; }
+.sec-head p { color: var(--ink-soft); margin-top: 12px; }
+/* tradingview */
+.tv-card { background: var(--paper); border: 1px solid var(--line); }
+.tv-bar { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; padding: 10px 14px; border-bottom: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--ink-soft); }
+.tv-bar b { color: var(--ink); font-weight: 500; }
+.tv-open { color: var(--gold-deep); text-decoration: none; border-bottom: 1px solid var(--gold-light); }
+.tv-open:hover { color: var(--ink); }
+.tv-chart { height: clamp(380px, 62vh, 560px); }
+.tv-chart .tradingview-widget-container, .tv-cal .tradingview-widget-container { height: 100%; width: 100%; }
+.tv-cal { height: 600px; }
+.tv-foot { padding: 8px 14px; font-size: 11.5px; color: var(--ink-soft); border-top: 1px solid var(--line); }
+.tv-foot a { color: var(--gold-deep); }
+/* news */
+.news-grid { display: grid; grid-template-columns: 1.35fr .65fr; gap: 24px; align-items: start; }
+.news-grid > * { min-width: 0; }
+.side { display: grid; gap: 20px; }
+.box { border: 1px solid var(--line); background: var(--paper); padding: 20px; }
+.box h3 { margin-bottom: 10px; }
+.box p, .box li { font-size: 14.5px; color: var(--ink-soft); }
+.box ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; }
+.pill { display: inline-block; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; padding: 3px 8px; background: var(--alert-bg); color: var(--alert); border-radius: 2px; }
+.notes { display: grid; gap: 12px; }
+.note-item { border-left: 3px solid var(--alert); padding: 8px 12px; background: var(--alert-bg); }
+.note-item b { display: block; font-size: 14.5px; color: var(--ink); }
+.note-item span { font-family: var(--mono); font-size: 11.5px; color: var(--ink-soft); }
+.note-item p { margin-top: 4px; }
+.movers { display: grid; gap: 10px; }
+.movers div { display: flex; gap: 10px; align-items: baseline; }
+.movers b { font-family: var(--mono); font-size: 12px; font-weight: 500; color: var(--gold-deep); min-width: 52px; }
+/* features */
+.grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.feat { padding: 28px 24px 30px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); min-width: 0; background: var(--paper); }
+.feat svg { width: 30px; height: 30px; stroke: var(--gold); fill: none; stroke-width: 1.5; margin-bottom: 18px; }
+.feat p { color: var(--ink-soft); font-size: 15px; margin-top: 8px; }
+/* kenapa xauusd */
+.why { display: grid; grid-template-columns: .85fr 1.15fr; gap: clamp(24px, 5vw, 72px); align-items: start; }
+.why > * { min-width: 0; }
+.why-list { list-style: none; margin: 0; padding: 0; display: grid; }
+.why-list li { padding: 20px 0; border-top: 1px solid var(--line); }
+.why-list li:last-child { border-bottom: 1px solid var(--line); }
+.why-list p { color: var(--ink-soft); font-size: 15px; margin-top: 6px; max-width: 58ch; }
+/* kenapa tradoor */
+.dark { background: var(--ink); color: #f4efe2; }
+.dark .eyebrow { color: var(--gold-light); }
+.dark .sec-head h2 { color: #fff; }
+.pts { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0; border-top: 1px solid #3a362d; border-left: 1px solid #3a362d; }
+.pt { padding: 26px 24px 28px; border-right: 1px solid #3a362d; border-bottom: 1px solid #3a362d; min-width: 0; }
+.pt h3 { color: var(--gold-light); }
+.pt p { color: #cfc8b6; font-size: 15px; margin-top: 8px; }
+.dark .cta { margin-top: 32px; }
+.btn.ghost-light { background: transparent; color: var(--gold-light); border-color: var(--gold-light); }
+.btn.ghost-light:hover { background: #2a2720; }
+/* advisor */
+.advisor { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(24px, 5vw, 72px); align-items: center; }
+.advisor > * { min-width: 0; }
+.adv-photo { margin: 0; position: relative; max-width: 420px; }
+.adv-photo::before { content: ""; position: absolute; inset: 14px -14px -14px 14px; border: 1px solid var(--gold-light); z-index: 0; }
+.adv-photo img { position: relative; z-index: 1; display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: center top; background: var(--sand); }
+.adv-role { font-family: var(--mono); font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep); margin-top: 8px; }
+/* join */
+.steps { list-style: none; margin: 28px 0 0; padding: 0; display: grid; gap: 22px; counter-reset: s; }
+.steps li { counter-increment: s; padding-top: 16px; border-top: 2px solid var(--gold-light); }
+.steps li::before { content: "Langkah " counter(s); font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep); display: block; margin-bottom: 6px; }
+.steps p { color: var(--ink-soft); font-size: 15px; margin-top: 4px; }
+.join { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 5vw, 64px); align-items: start; }
+.join > * { min-width: 0; }
+form { background: var(--paper); border: 1px solid var(--line); padding: 26px; display: grid; gap: 16px; }
+label { font-size: 13px; font-weight: 500; display: grid; gap: 6px; }
+input, select, textarea { font: inherit; padding: 12px 14px; border: 1px solid #cfc7b2; background: var(--paper); color: var(--ink); border-radius: 2px; width: 100%; }
+input:focus, select:focus, textarea:focus { border-color: var(--gold); outline: 2px solid var(--gold-light); outline-offset: 0; }
+.ok { display: none; border-left: 3px solid var(--gold); background: var(--sand); padding: 12px 14px; font-size: 14px; }
+.ok.show { display: block; }
+/* loker (sekunder, sengaja dibuat ringan) */
+.loker { border: 1px dashed #cfc7b2; background: var(--paper); padding: clamp(20px, 3vw, 32px); display: grid; grid-template-columns: .9fr 1.1fr; gap: 24px; align-items: center; }
+.loker > * { min-width: 0; }
+.loker h3 { margin-top: 8px; font-size: 1.5rem; }
+.loker p { color: var(--ink-soft); font-size: 15px; margin-top: 8px; }
+.roles { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.roles span { border: 1px solid var(--line); background: var(--sand); padding: 6px 12px; font-size: 14px; }
+.loker .btn { margin-top: 14px; padding: 11px 20px; }
+/* faq */
+details { border-bottom: 1px solid var(--line); padding-block: 18px; }
+details:first-of-type { border-top: 1px solid var(--line); }
+summary { cursor: pointer; font-family: var(--display); font-size: 1.15rem; list-style: none; display: flex; justify-content: space-between; gap: 16px; }
+summary::-webkit-details-marker { display: none; }
+summary::after { content: "+"; color: var(--gold-deep); font-size: 1.4rem; line-height: 1; }
+details[open] summary::after { content: "–"; }
+details p { color: var(--ink-soft); margin-top: 10px; max-width: 70ch; font-size: 15px; }
+footer { border-top: 1px solid var(--line); padding-block: 32px 44px; display: grid; gap: 14px; }
+footer small { color: var(--ink-soft); font-size: 12.5px; max-width: 90ch; line-height: 1.6; }
+.foot-top { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; align-items: center; }
+/* testimoni */
+.tm-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+.tm { position: relative; padding: 0; border: 1px solid var(--line); background: var(--sand); cursor: pointer; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 2px; }
+.tm img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+.tm.vid::after { content: "\25B6"; position: absolute; inset: 0; display: grid; place-items: center; font-size: 2.2rem; color: #fff; background: rgba(29,27,23,.35); }
+.tm[hidden] { display: none; }
+.tm-more { margin-top: 24px; text-align: center; }
+#tm-lb { position: fixed; inset: 0; z-index: 300; background: rgba(0,0,0,.88); display: flex; align-items: center; justify-content: center; padding: 16px; }
+#tm-lb[hidden] { display: none; }
+#tm-lb img, #tm-lb iframe { max-width: min(520px, 100%); max-height: 86vh; width: 100%; border: 0; background: #000; }
+#tm-lb iframe { height: 80vh; }
+#tm-x { position: absolute; top: 12px; right: 14px; font: 28px/1 var(--body); color: #fff; background: none; border: 0; cursor: pointer; padding: 8px 12px; }
+@media (max-width: 900px) {
+  .hero, .join, .news-grid, .loker, .advisor, .why { grid-template-columns: 1fr; }
+  .adv-photo { max-width: 320px; margin-right: 14px; }
+  .logo-box { order: -1; }
+  .logo-box img { max-width: 340px; }
+  .nav ul { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="wrap nav">
+    <a class="brand" href="#atas" aria-label="Tradoor, ke atas">TRADOOR</a>
+    <ul>
+      <li><a href="#chart">Chart Emas</a></li>
+      <li><a href="#berita">Berita High Impact</a></li>
+      <li><a href="#komunitas">Komunitas</a></li>
+      <li><a href="#testimoni">Testimoni</a></li>
+      <li><a href="#advisor">Advisor</a></li>
+      <li><a href="#gabung">Gabung</a></li>
+      <li><a href="#loker">Karir</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a class="btn" href="#gabung">Gabung</a>
+  </div>
+</div>
+<main id="atas">
+  <div class="wrap hero">
+    <div>
+      <span class="eyebrow">Gold Trading Community</span>
+      <h1>Satu pintu masuk untuk <em>trader emas</em> yang mau berkembang bersama.</h1>
+      <p class="lead">Tradoor adalah komunitas trading emas (XAU/USD). Kami belajar membaca market, menyusun rencana, dan menjaga risiko bareng-bareng, dari pemula sampai trader berpengalaman.</p>
+      <div class="cta">
+        <a class="btn" href="#gabung">Masuk komunitas</a>
+        <a class="btn ghost" href="https://wa.me/62895425022760" target="_blank" rel="noopener">Chat WhatsApp</a>
+      </div>
+      <div class="stats">
+        <div><b>XAU/USD</b><span>Fokus satu instrumen</span></div>
+        <div><b>Harian</b><span>Analisis dan diskusi</span></div>
+        <div><b>Terbuka</b><span>Untuk semua level</span></div>
+      </div>
+    </div>
+    <div class="logo-box">
+      <img src="https://drive.google.com/thumbnail?id=1GGo6l_xeU1EZ0Z9nbz1MgDkaSas6-AQ_&sz=w1000" alt="Logo Tradoor, Gold Trading Community: pintu terbuka dengan grafik candlestick dan panah naik" width="840" height="630" onerror="this.onerror=null;this.src='https://placehold.co/840x630/ffffff/b98a14?text=TRADOOR+Gold+Trading';">
+    </div>
+  </div>
+
+  <!-- KENAPA XAUUSD -->
+  <section class="sec wrap" id="kenapa-xauusd" style="padding-top:0">
+    <div class="why">
+      <div>
+        <span class="eyebrow">Kenapa XAU/USD</span>
+        <h2 style="margin-top:10px">Emas, satu instrumen yang layak dipelajari dalam-dalam.</h2>
+        <p class="lead" style="margin-top:14px">Banyak trader memilih emas karena karakternya jelas dan pergerakannya mudah dikaitkan dengan berita. Itu membuatnya cocok untuk belajar secara terarah.</p>
+      </div>
+      <ul class="why-list">
+        <li><h3>Aset safe haven</h3><p>Saat pasar tidak pasti, emas sering dicari sebagai tempat berlindung. Pola ini membantu kamu membaca suasana pasar.</p></li>
+        <li><h3>Likuiditas tinggi</h3><p>Emas diperdagangkan sangat aktif sehingga harga bergerak lancar, dan hampir 24 jam pada hari kerja.</p></li>
+        <li><h3>Dekat dengan berita</h3><p>Data AS dan keputusan The Fed sering menggerakkan emas. Kalender berita di Tradoor membantu kamu melihatnya lebih dulu.</p></li>
+        <li><h3>Volatilitas yang perlu disiplin</h3><p>Pergerakannya bisa cepat, jadi peluang dan risikonya sama-sama besar. Karena itu kami menekankan manajemen risiko sejak awal.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CHART XAUUSD OANDA -->
+  <div class="band" id="chart">
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="eyebrow">Chart live</span>
+        <h2>XAU/USD, langsung dari OANDA.</h2>
+        <p>Pantau emas real-time di satu halaman. Gunakan alat gambar di chart untuk menandai level yang kamu bahas bersama komunitas.</p>
+      </div>
+      <div class="tv-card">
+        <div class="tv-bar"><span><b>OANDA:XAUUSD</b> · Emas vs Dolar AS · WIB</span><a class="tv-open" href="https://www.tradingview.com/chart/?symbol=OANDA%3AXAUUSD" target="_blank" rel="noopener">Buka chart penuh di TradingView</a></div>
+        <div class="tv-chart">
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+            <script src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+            {
+              "autosize": true,
+              "symbol": "OANDA:XAUUSD",
+              "interval": "60",
+              "timezone": "Asia/Jakarta",
+              "theme": "light",
+              "style": "1",
+              "locale": "id",
+              "allow_symbol_change": false,
+              "hide_side_toolbar": false,
+              "hide_top_toolbar": false,
+              "hide_legend": false,
+              "withdateranges": true,
+              "save_image": true,
+              "calendar": false,
+              "details": false,
+              "hotlist": false,
+              "support_host": "https://www.tradingview.com"
+            }
+            </script>
+          </div>
+        </div>
+        <div class="tv-foot">Chart oleh <a href="https://id.tradingview.com/" target="_blank" rel="noopener">TradingView</a>. Data bersifat informasi dan bukan saran trading.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BERITA HIGH IMPACT -->
+  <section class="sec wrap" id="berita">
+    <div class="sec-head">
+      <span class="eyebrow">Radar berita</span>
+      <h2>Berita high impact yang menggerakkan emas.</h2>
+      <p>Kalender di bawah hanya menampilkan rilis berdampak tinggi untuk mata uang utama. Jam tampil mengikuti zona waktu perangkatmu. Cek sebelum membuka posisi.</p>
+    </div>
+    <div class="news-grid">
+      <div class="tv-card">
+        <div class="tv-bar"><span><b>Kalender ekonomi</b> · impact tinggi</span><span class="pill">High impact</span></div>
+        <div class="tv-cal">
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+            {
+              "colorTheme": "light",
+              "isTransparent": false,
+              "width": "100%",
+              "height": "100%",
+              "locale": "id",
+              "importanceFilter": "1",
+              "countryFilter": "us,eu,gb,jp,cn"
+            }
+            </script>
+          </div>
+        </div>
+        <div class="tv-foot">Kalender oleh <a href="https://id.tradingview.com/economic-calendar/" target="_blank" rel="noopener">TradingView</a>.</div>
+      </div>
+      <div class="side">
+        <div class="box">
+          <h3>Catatan admin Tradoor</h3>
+          <div class="notes" id="notes" aria-live="polite"></div>
+        </div>
+        <div class="box">
+          <h3>Rilis yang biasanya menggerakkan emas</h3>
+          <div class="movers">
+            <div><b>NFP</b><p>Data tenaga kerja non-pertanian AS.</p></div>
+            <div><b>CPI</b><p>Inflasi konsumen AS.</p></div>
+            <div><b>FOMC</b><p>Keputusan suku bunga dan pernyataan The Fed.</p></div>
+            <div><b>PCE</b><p>Ukuran inflasi yang diawasi The Fed.</p></div>
+            <div><b>Pidato</b><p>Ketua The Fed dan pejabat bank sentral lain.</p></div>
+          </div>
+        </div>
+        <div class="box">
+          <h3>Kebiasaan aman saat berita</h3>
+          <ul>
+            <li>Cek kalender sebelum membuka posisi.</li>
+            <li>Spread melebar dan harga bisa loncat saat rilis.</li>
+            <li>Kurangi ukuran lot atau tunggu harga tenang.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KENAPA TRADOOR -->
+  <div class="dark" id="kenapa-tradoor">
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="eyebrow">Kenapa Tradoor</span>
+        <h2>Belajar trading emas tanpa jalan sendirian.</h2>
+      </div>
+      <div class="pts">
+        <div class="pt"><h3>Fokus satu instrumen</h3><p>Semua materi dan diskusi berpusat di emas, jadi kamu mendalami satu pasar, bukan mencoba semuanya sekaligus.</p></div>
+        <div class="pt"><h3>Chart dan berita satu tempat</h3><p>Chart XAU/USD live dan kalender berita high impact tersedia langsung di situs, tanpa pindah-pindah aplikasi.</p></div>
+        <div class="pt"><h3>Risiko dibahas lebih dulu</h3><p>Sebelum bicara entry, kami membahas ukuran lot dan batas rugi, supaya modal bertahan lebih lama.</p></div>
+        <div class="pt"><h3>Terbuka untuk pemula</h3><p>Tidak perlu pengalaman. Pertanyaan dasar disambut, dan kamu belajar bertahap bersama anggota lain.</p></div>
+        <div class="pt"><h3>Tanpa janji profit</h3><p>Kami tidak menjanjikan keuntungan dan tidak mengelola dana anggota. Kamu trading di akun brokermu sendiri.</p></div>
+        <div class="pt"><h3>Dipandu advisor</h3><p>Komunitas didampingi advisor yang bisa kamu hubungi langsung lewat WhatsApp.</p></div>
+      </div>
+      <div class="cta"><a class="btn" href="#gabung">Gabung Tradoor</a><a class="btn ghost-light wa-link" href="https://wa.me/62895425022760" target="_blank" rel="noopener">Chat via WhatsApp</a></div>
+    </div>
+  </div>
+
+  <!-- KOMUNITAS -->
+  <div class="band" id="komunitas">
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="eyebrow">Isi komunitas</span>
+        <h2>Yang kamu dapat setelah masuk lewat pintu Tradoor.</h2>
+      </div>
+      <div class="grid4">
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19V5M4 19h16M8 15l3-4 3 2 5-6"/></svg>
+          <h3>Analisis harian</h3>
+          <p>Peta level penting emas tiap hari kerja, lengkap dengan skenario naik dan turun.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8l9-4 9 4-9 4-9-4zM7 10.5V15c0 1.5 2.2 3 5 3s5-1.5 5-3v-4.5"/></svg>
+          <h3>Belajar bertahap</h3>
+          <p>Candlestick, support dan resistance, price action, sampai psikologi trading.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 7.7-8 9-4.6-1.3-8-4.5-8-9V6l8-3zM9 12l2 2 4-4"/></svg>
+          <h3>Manajemen risiko</h3>
+          <p>Hitung lot, tentukan stop loss, dan batasi kerugian harian agar modal tetap hidup.</p>
+        </div>
+        <div class="feat">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4V5zM8 9h8M8 12h5"/></svg>
+          <h3>Diskusi dan review</h3>
+          <p>Bagikan setup, minta masukan sesama anggota, dan bedah hasil trading bersama.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADVISOR -->
+  <section class="sec wrap" id="advisor">
+    <div class="advisor">
+      <figure class="adv-photo">
+        <img src="https://drive.google.com/thumbnail?id=1NEFCfFNKoNs16XOirGgxlDS_DxKSgoNF&sz=w900" alt="Reyner Lie Wijaya, advisor Tradoor" width="640" height="800" referrerpolicy="no-referrer" loading="lazy">
+      </figure>
+      <div>
+        <span class="eyebrow">Advisor</span>
+        <h2 style="margin-top:10px">Reyner Lie Wijaya</h2>
+        <p class="adv-role">Advisor Tradoor</p>
+        <p class="lead" id="advBio" style="margin-top:16px"></p>
+        <div class="cta"><a class="btn" href="#gabung">Gabung bersama kami</a><a class="btn ghost wa-link" href="https://wa.me/62895425022760" target="_blank" rel="noopener">Chat WhatsApp</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONI -->
+  <div class="band" id="testimoni">
+    <div class="wrap sec">
+      <div class="sec-head">
+        <span class="eyebrow">Testimoni</span>
+        <h2>Cerita dari anggota komunitas Tradoor.</h2>
+        <p>Tangkapan layar dan video dari anggota. Klik untuk memperbesar. Pengalaman tiap orang berbeda dan bukan jaminan hasil.</p>
+      </div>
+      <div class="tm-grid" id="tmGrid"></div>
+      <div class="tm-more"><button class="btn ghost" id="tmMore" type="button">Lihat semua testimoni</button></div>
+    </div>
+  </div>
+  <div id="tm-lb" hidden role="dialog" aria-modal="true" aria-label="Testimoni"><button id="tm-x" type="button" aria-label="Tutup">&times;</button><div id="tm-box"></div></div>
+
+  <!-- GABUNG -->
+  <section class="sec wrap" id="gabung">
+    <div class="join">
+      <div>
+        <span class="eyebrow">Gabung komunitas</span>
+        <h2 style="margin-top:10px">Buka pintunya, masuk bareng kami.</h2>
+        <p class="lead" style="margin-top:14px">Gratis untuk bergabung. Isi data singkat dan admin Tradoor akan menghubungimu.</p>
+        <ol class="steps">
+          <li><h3>Isi pendaftaran</h3><p>Nama dan nomor WhatsApp kamu.</p></li>
+          <li><h3>Kenalan dengan admin</h3><p>Admin menjelaskan aturan grup dan menanyakan level pengalamanmu.</p></li>
+          <li><h3>Mulai belajar</h3><p>Masuk grup, ikuti materi dasar, dan ikut diskusi pertama.</p></li>
+        </ol>
+      </div>
+      <form id="f" name="gabung-tradoor" novalidate>
+        <label for="nm">Nama
+          <input id="nm" name="nama" type="text" autocomplete="name" placeholder="Nama lengkap" required>
+        </label>
+        <label for="wa">Nomor WhatsApp
+          <input id="wa" name="wa" type="tel" autocomplete="tel" inputmode="tel" placeholder="08xxxxxxxxxx" required>
+        </label>
+        <label for="lv">Pengalaman trading
+          <select id="lv" name="level">
+            <option>Belum pernah trading</option>
+            <option>Kurang dari 1 tahun</option>
+            <option>1 sampai 3 tahun</option>
+            <option>Lebih dari 3 tahun</option>
+          </select>
+        </label>
+        <label for="kb">Kebutuhan utama
+          <select id="kb" name="kebutuhan">
+            <option>Belajar dasar trading emas</option>
+            <option>Analisis dan sinyal harian</option>
+            <option>Belajar manajemen risiko</option>
+            <option>Diskusi dengan sesama trader</option>
+            <option>Ingin jadi bagian tim Tradoor</option>
+            <option>Lainnya</option>
+          </select>
+        </label>
+        <label for="ct">Ceritakan kebutuhanmu (opsional)
+          <textarea id="ct" name="catatan" rows="3" placeholder="Contoh: saya baru mulai dan ingin belajar membaca candlestick"></textarea>
+        </label>
+        <button class="btn" type="submit">Gabung sekarang</button>
+        <p class="ok" id="ok" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- OPEN LOKER (sekunder) -->
+  <div class="band" id="loker">
+    <div class="wrap sec" style="padding-block: clamp(36px, 5vw, 60px)">
+      <div class="loker">
+        <div>
+          <span class="eyebrow">Karir</span>
+          <h3>Mau jadi bagian dari tim Tradoor?</h3>
+          <p>Selain bergabung sebagai anggota, kami membuka kesempatan untuk membantu mengembangkan komunitas.</p>
+        </div>
+        <div>
+          <div class="roles" id="roles"></div>
+          <a class="btn ghost" id="lokerBtn" href="#gabung">Daftar sebagai tim</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <section class="sec wrap" id="faq">
+    <div class="sec-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Pertanyaan yang sering muncul.</h2>
+    </div>
+    <details>
+      <summary>Apakah saya perlu pengalaman trading?</summary>
+      <p>Tidak. Ada jalur untuk pemula yang dimulai dari istilah dasar dan cara kerja pasar emas, serta diskusi lanjutan untuk trader yang sudah berjalan.</p>
+    </details>
+    <details>
+      <summary>Apakah Tradoor menjamin profit?</summary>
+      <p>Tidak. Tradoor adalah komunitas edukasi. Tidak ada janji keuntungan, dan setiap keputusan trading menjadi tanggung jawab masing-masing anggota.</p>
+    </details>
+    <details>
+      <summary>Apakah Tradoor mengelola dana saya?</summary>
+      <p>Tidak. Tradoor tidak menerima atau mengelola dana anggota. Kamu trading di akun broker milikmu sendiri.</p>
+    </details>
+    <details>
+      <summary>Kenapa fokus ke emas?</summary>
+      <p>Satu instrumen membuat belajar lebih terarah. Kamu mengenal karakter XAU/USD, jam ramainya, dan pengaruh berita tanpa harus memantau banyak pasangan mata uang.</p>
+    </details>
+    <details>
+      <summary>Dari mana data chart dan kalender berita?</summary>
+      <p>Chart XAU/USD dan kalender ekonomi ditampilkan oleh TradingView. Catatan admin ditulis oleh tim Tradoor.</p>
+    </details>
+  </section>
+</main>
+<footer class="wrap">
+  <div class="foot-top">
+    <span class="brand" style="letter-spacing:.4em">TRADOOR</span>
+    <span class="eyebrow">Gold Trading Community</span>
+  </div>
+  <small><a href="https://wa.me/62895425022760" target="_blank" rel="noopener">Hubungi kami via WhatsApp</a></small>
+  <small>Supported by <strong>PT Tradepro Penasihat Berjangka</strong><br>APL Tower lt. 30 unit T1, Central Park Mall, Jakarta</small>
+  <small>Peringatan risiko: trading emas dan instrumen berleverage mengandung risiko tinggi dan dapat menyebabkan kehilangan seluruh modal. Konten di situs ini bersifat edukasi dan bukan nasihat keuangan atau ajakan membeli maupun menjual. Kinerja masa lalu tidak menjamin hasil di masa depan.</small>
+  <small>© 2026 Tradoor. Seluruh hak cipta dilindungi.</small>
+</footer>
+
+<script>
+/* ===== PENGATURAN YANG BISA KAMU EDIT ===== */
+// Link grup (isi dengan link WhatsApp/Telegram komunitas). Kosongkan untuk memakai pesan biasa.
+var JOIN_LINK = "https://wa.me/62895425022760";   // tujuan WhatsApp setelah pendaftaran
+var LOKER_LINK = "https://wa.me/62895425022760";  // tujuan tombol open loker
+// Posisi open loker. Hapus atau tambah sesuai kebutuhan. Kosongkan array untuk menyembunyikan seluruh bagian.
+var LOKER_ROLES = ["Admin Komunitas", "Analis / Mentor", "Content Creator"];
+// Catatan admin untuk berita high impact. Tambahkan objek baru di paling atas.
+// Contoh: { waktu: "Rabu, 20.00 WIB", judul: "FOMC Rate Decision", catatan: "Hindari entry 15 menit sebelum rilis." }
+var NEWS_NOTES = [];
+// Deskripsi singkat advisor. Ganti dengan profil dan pengalaman yang ingin kamu tampilkan.
+var ADVISOR_BIO = "Mendampingi arah komunitas Tradoor agar anggota belajar trading emas dengan rencana yang jelas dan risiko yang terjaga.";
+
+/* ===== KODE UTAMA ===== */
+(function () {
+  document.getElementById('advBio').textContent = ADVISOR_BIO;
+  var notes = document.getElementById('notes');
+  if (!NEWS_NOTES.length) {
+    notes.innerHTML = '<p>Belum ada catatan. Admin akan menandai rilis penting di sini sebelum waktunya.</p>';
+  } else {
+    NEWS_NOTES.forEach(function (n) {
+      var d = document.createElement('div'); d.className = 'note-item';
+      var b = document.createElement('b'); b.textContent = n.judul;
+      var s = document.createElement('span'); s.textContent = n.waktu;
+      var p = document.createElement('p'); p.textContent = n.catatan;
+      d.appendChild(b); d.appendChild(s); d.appendChild(p); notes.appendChild(d);
+    });
+  }
+  var roles = document.getElementById('roles');
+  if (!LOKER_ROLES.length) {
+    document.getElementById('loker').hidden = true;
+    var li = document.querySelector('a[href="#loker"]'); if (li) li.parentNode.hidden = true;
+  } else {
+    LOKER_ROLES.forEach(function (r) {
+      var s = document.createElement('span'); s.textContent = r; roles.appendChild(s);
+    });
+  }
+  if (LOKER_LINK) {
+    var lb = document.getElementById('lokerBtn');
+    lb.href = LOKER_LINK + '?text=' + encodeURIComponent('Halo, saya tertarik bergabung dengan tim Tradoor (karir).');
+    lb.target = '_blank'; lb.rel = 'noopener';
+  }
+  var f = document.getElementById('f'), ok = document.getElementById('ok');
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var nm = document.getElementById('nm').value.trim();
+    var wa = document.getElementById('wa').value.replace(/[^0-9+]/g, '');
+    if (!nm || wa.length < 9) {
+      ok.textContent = 'Lengkapi nama dan nomor WhatsApp yang valid (minimal 9 digit).';
+      ok.classList.add('show'); return;
+    }
+    var level = document.getElementById('lv').value;
+    var need = document.getElementById('kb').value;
+    var extra = document.getElementById('ct').value.trim();
+    // Pesan langsung ke WhatsApp
+    var txt = 'Halo Tradoor, saya ingin bergabung.\n' +
+      'Nama: ' + nm + '\n' +
+      'Nomor WhatsApp: ' + wa + '\n' +
+      'Pengalaman trading: ' + level + '\n' +
+      'Kebutuhan: ' + need + (extra ? '\nCatatan: ' + extra : '');
+    ok.textContent = 'Membuka WhatsApp dengan pesanmu. Tekan kirim di WhatsApp untuk menyelesaikan pendaftaran.';
+    ok.classList.add('show');
+    if (JOIN_LINK) { window.location.href = JOIN_LINK + '?text=' + encodeURIComponent(txt); }
+    else { ok.textContent = 'Terima kasih, ' + nm + '. Pendaftaran kamu sudah kami terima.'; f.reset(); }
+  });
+})();
+</script>
+<script>
+/* ===== TESTIMONI & LIGHTBOX ===== */
+(function () {
+  var T = [["i", "12I7f2rX-1wzkZP0MwSHoT_dc_KdqXhYZ"], ["i", "1WIlje3IdYk4_DUYLtpXHGQNWxzqWD6xN"], ["i", "1rK5dNszlJMBFKW8sTxZz1FKUdWH4H6Ic"], ["i", "1iEsRyOkozMoI6hpwuwU9coGY0d99Tgnz"], ["i", "1dj72rnP60FIeWbnv-aIi-mXeXSC1P3fT"], ["v", "1Cha7mxiSnoCntNye4YdggWo1oJdWmzoj"], ["i", "1oIJhf4CxpevCo-aOt8ZVQ0LMHRiG9hBN"], ["i", "1cl3sOBR7B1Weagb2RkB1kA0OX4hZEDxS"], ["i", "1oYVo9clNmcOBKKCVJXTlm0NrGP7_GpNk"], ["i", "1CWmp1eN4S9QbPX-BjmFYpI5bq84KyNbv"], ["i", "1rkG9y-Aa1JvRwH8G4w44HFfBmeIeB563"], ["i", "11FddPpScb-0wG_mD1VMBciy4T4eweMTE"], ["v", "1NcXyHrd2IXOjfwFgGHtRoPSXan-R_WlO"], ["i", "1kji4CT1X3qhPdVjzSVdOLnmaiv7DE_mi"], ["i", "1v4kII4-Goh6mzc86ALaiJGDbhY7MSEjj"], ["i", "18C27Z4JXKVPJV7tsgCBUfg-q-4k05LH5"], ["i", "1yhrVPLVYRSJ1EeV9DOaHiVcVHuSDfgO0"], ["v", "1srJad_7MflW4Uq3mHRe4os9mz1Tdohst"], ["i", "1JWtPDbfVsjUUrRD3H_yvWTH5m73AsgQn"], ["i", "1JVrrsaTj6mi9v9ztUo8ehXyth5VavI_w"], ["i", "1g1OaCFF5HrFd3-kpUJ0asiubpKlMmPyM"], ["i", "1-uFSEnyqkx06uqGaV1ksC4yTM0torbn0"], ["i", "1XOlSzkZOYMzum98w-P9Kid6wdBPWNaOB"], ["i", "1PE45pBNkBsZ4Rl9QdVVz3sprH3HgQxrX"], ["i", "1AuwXlTuDSZVHcrUU7Z6ToJgg-eECLTYl"], ["i", "1-9x8rE8XV6OiiV-06LOckPORrSgHvMRE"], ["i", "1iXQ-OfBxbK41vD0svybjHXB5qPj4B97e"], ["i", "1df0TSbTDAXrTV2HdH-LjKOpqmfGxkvsI"], ["i", "1iueltrU-AqnyFdVyRpFYBFRPE7dTlVQo"], ["i", "12HG3nDaq5aUrv04wAJdxQx94DjyWTx_G"]], SHOW = 8;
+  var g = document.getElementById('tmGrid'), more = document.getElementById('tmMore'), lb = document.getElementById('tm-lb'), box = document.getElementById('tm-box');
+  T.forEach(function (t, n) {
+    var b = document.createElement('button'); b.type = 'button'; b.className = 'tm' + (t[0] === 'v' ? ' vid' : '');
+    b.setAttribute('aria-label', (t[0] === 'v' ? 'Putar video testimoni ' : 'Lihat testimoni ') + (n + 1));
+    if (n >= SHOW) b.hidden = true;
+    var im = document.createElement('img'); im.loading = 'lazy'; im.alt = 'Testimoni anggota Tradoor ' + (n + 1);
+    im.src = 'https://drive.google.com/thumbnail?id=' + t[1] + '&sz=w480';
+    im.onerror = function () { b.hidden = true; };
+    b.appendChild(im);
+    b.addEventListener('click', function () {
+      box.innerHTML = '';
+      if (t[0] === 'v') { var f = document.createElement('iframe'); f.src = 'https://drive.google.com/file/d/' + t[1] + '/preview'; f.allow = 'autoplay; fullscreen'; f.allowFullscreen = true; box.appendChild(f); }
+      else { var i2 = document.createElement('img'); i2.src = 'https://drive.google.com/thumbnail?id=' + t[1] + '&sz=w1200'; i2.alt = im.alt; box.appendChild(i2); }
+      lb.hidden = false;
+    });
+    g.appendChild(b);
+  });
+  if (T.length <= SHOW) more.parentNode.hidden = true;
+  more.addEventListener('click', function () { g.querySelectorAll('.tm[hidden]').forEach(function (e) { e.hidden = false; }); more.parentNode.hidden = true; });
+  function close() { lb.hidden = true; box.innerHTML = ''; }
+  document.getElementById('tm-x').addEventListener('click', close);
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) close(); });
+})();
+</script>
+</body>
+</html>
