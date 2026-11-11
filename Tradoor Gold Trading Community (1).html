@@ -7,14 +7,9 @@
 <meta name="description" content="Tradoor adalah komunitas trading emas (XAU/USD) untuk belajar bersama: analisis harian, chart live, kalender berita high impact, dan diskusi trader.">
 <meta name="theme-color" content="#ffffff">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23fff'/%3E%3Cpath d='M9 4h9l5 2v22H9z' fill='none' stroke='%23b98a14' stroke-width='2.5'/%3E%3Cpath d='M12 20l4-4 3 2 4-5' fill='none' stroke='%23b98a14' stroke-width='2'/%3E%3C/svg%3E">
-<meta property="og:type" content="website">
 <meta property="og:title" content="Tradoor | Gold Trading Community">
 <meta property="og:description" content="Komunitas trading emas: chart XAU/USD live, berita high impact, kelas, dan diskusi.">
-<meta property="og:image" content="https://tradoor.com/logo.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Tradoor | Gold Trading Community">
-<meta name="twitter:description" content="Komunitas trading emas: chart XAU/USD live, berita high impact, kelas, dan diskusi.">
-<meta name="twitter:image" content="https://tradoor.com/logo.jpg">
+<meta property="og:image" content="logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=DM+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
@@ -188,6 +183,33 @@ footer small { color: var(--ink-soft); font-size: 12.5px; max-width: 90ch; line-
   .nav ul { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* admin */
+.adm-wrap { max-width: 460px; }
+.adm-dash { display: none; }
+.adm-dash.show { display: block; }
+.adm-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+.adm-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.adm-grid .full { grid-column: 1 / -1; }
+.adm-dash textarea { min-height: 96px; font-family: var(--mono); font-size: 13px; }
+.adm-hint { font-size: 12.5px; color: var(--ink-soft); font-weight: 400; }
+.adm-actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
+@media (max-width: 900px) { .adm-grid { grid-template-columns: 1fr; } }
+
+/* editor visual */
+.ed-on body { padding-bottom: 150px; }
+.ed-on [data-ed]:hover { outline: 1px dashed #b98a14; outline-offset: 2px; cursor: text; }
+.ed-on .ed-sel { outline: 2px solid #2b7cff !important; outline-offset: 2px; }
+.ed-on img { cursor: pointer; }
+#edBar { display: none; position: fixed; left: 0; right: 0; bottom: 0; z-index: 9999; background: #1d1b17; color: #fff; padding: 8px 8px calc(8px + env(safe-area-inset-bottom, 0px)); box-shadow: 0 -6px 24px rgba(0,0,0,.25); font-family: var(--body); }
+#edBar .ed-row { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+#edBar #edInfo { font-size: 12px; color: #e2bf5a; padding: 2px 4px 6px; white-space: nowrap; display: block; overflow: hidden; text-overflow: ellipsis; }
+#edBar button, #edBar .ed-c { flex: 0 0 auto; font: 500 13px var(--body); background: #3a362d; color: #fff; border: 0; border-radius: 6px; padding: 9px 12px; cursor: pointer; white-space: nowrap; }
+#edBar button:active { background: #55503f; }
+#edBar .ed-c { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; }
+#edBar .ed-c input { width: 28px; height: 28px; padding: 0; border: 0; background: none; }
+#edBar .ed-danger { background: #7a2a1c; }
+#edBar .ed-done { background: #b98a14; color: #1d1b17; font-weight: 600; }
 </style>
 </head>
 <body>
@@ -224,10 +246,9 @@ footer small { color: var(--ink-soft); font-size: 12.5px; max-width: 90ch; line-
       </div>
     </div>
     <div class="logo-box">
-      <img src="https://drive.google.com/thumbnail?id=1GGo6l_xeU1EZ0Z9nbz1MgDkaSas6-AQ_&sz=w1000" alt="Logo Tradoor, Gold Trading Community: pintu terbuka dengan grafik candlestick dan panah naik" width="840" height="630" onerror="this.onerror=null;this.src='https://placehold.co/840x630/ffffff/b98a14?text=TRADOOR+Gold+Trading';">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAwICQsJCAwLCgsODQwOEh4UEhEREiUbHBYeLCcuLisnKyoxN0Y7MTRCNCorPVM+QkhKTk9OLztWXFVMW0ZNTkv/2wBDAQ0ODhIQEiQUFCRLMisyS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0v/wgARCAFoAeADASIAAhEBAxEB/8QAGgABAAMBAQEAAAAAAAAAAAAAAAEEBQMCBv/EABkBAQEBAQEBAAAAAAAAAAAAAAACAwEEBf/aAAwDAQACEAMQAAAB+qAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIJAAAAAAAAAAAicfOthl2uLSJ1kAAAAAAAAAAAAAAAAAAAAAAAAAABi7WL5tJ56Nqe4lqzUntyxhzTcZtrfOwidJAAAHnj0OgAAAAAAAAAAAAAAAAAAGLtYvm0vXKdzWQ0nzWtp7lVt7zheNb6186u9cnpc6bj69GfTlRp4aW5p28r1B7sAABBIAAAAAAAAAAAAAAAGJt4vm0vXKdzWQ0kAADzx75mVeqcPFvCYmpt1LdxqD6PnAAAAAAAAAAAAAAAAAAAYu1iebS/cp3NZDSQHLrXnthz6d4y9TKyuqh4fRMBNunc0jUH0POAAAAAAAAAAAAAAAAAAAw9zD8+l+7Su6QGnBAz7mb57t3M/QvjK1cnnaiHi39RA9W6dy51R9DzgAAAAAAAAAAAAAAAAAAMLcwvPpoXqN7SA0555q+Vdc2zUxu1p5epvDJ1s/jMnSuYaY3G3UzpdpXOtce/wA4AAAAAAAAAAAAAAAAAADA3/n/AD6aV6he0jm5TzvPl4YX4v5utrPv1E7QzbeRjfa/lds7qQ9434u2K+sa49mIAAAAAAAESAAAAAAAAAAD576H57DTStVbFTm3MjXw0oda+7XMTcr2Nomrzzp76nYys6pT5YaSgerlG9pOyPbgAAAAAAAAAAAAAAAAAAA+d+i+dw00+3C3c4G9xoZ1qdsHWufdLlE957XqdJYu1iz2ih5N5QJvUL1ztj24CCQRIAAAAAAAAAAAAAAAAPnPo/nMNNPrQtd5w1fTSeeF9DE9zNOVcCuMTbw8qooeTeYCb+ffudwe3AABEgAAAAAACJAAACJACJAAB839J81hppaedo6QF8AAAYe5hZVQI8u8oE6GdoVO5J7cAAAAESAAAAAAAAAAAABBLnVnt75q9mYabGh8zB9Hzw/Xea8ZU8ak5Q2PeF56+jq4g61bvbO8yNClPfOhn365vD2YAAAAAAACCQAAAAAAAOfRxT5aKe5fa7JW69FciTqEhEgABEjxysOKXWw53O466e8OybkOgAAAAAAAAAAAAAAAAAAAAESIkAAAAAAAAAAAAAAAKtHXZVkulrK6On7naA0mlV6W/Npn+9TjXPXXG2b4GkiCqpR5NdlE+vIBnaOLjfRqxxSvU6vO649GY48eaPjWw0y7F6iXpzNPWAvipFfG/DVcV7WVZ6uDaGVq42F+msKF/O69XRtAAGXbp28LtDeAMq9Qr+fTd54/PvO23x7XwNJU7eHlV2boqXcPbJGssTbwML3xvDI18fG9LtXsaQy9TJirtmvYviJVzD28DfwuRvGLsYm5hcjePGRsYWF743hh7fzmF/RsWv1o+62uSNoAAyLle1ldkawBjaFS7lXbB3+VOdnE2nJIvlSr41cr6RLWMi3Yy8b2BtD5/wCgw8r25wBq5PbW49ybQq2nGFt0s/G96ln9evO359XIXzN56uZjemwXVjrGkSNYjA38XKtrh3nSfn9/PnK9CJbQAAAAAABEgAAAAAAAAAAiQRIAABCQAAAAAABEefEurmd6Tx6956zdHI6vcuPodq/Q0M3vXPejl6hwoa2eTy9czRo+qxeq96hqeZ8lGzRtnm1Q9mrSu55Pvn6K9/N0TMv1bBWnx2Os8+R35daRpdOPYyteloGPsZ2kRE8eOrk53q5ejqia4AAAAAAAAAAAAAAAAAAAAAAiQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB//xAAqEAABBAAFBAICAwEBAAAAAAADAAECBBAREiAzExQyUCExIjAjNHAkYP/aAAgBAQABBQL/AEubuxInkyiaLrP3JPOI5SZ2dkzuyjYkyiaL+3J51vB2zUgRdSBJk7ZJpOyjYdRNF/1Z/PqSedbwxdmdSBF1IEmX0oyeKid1EkX2ym0VM7uq3J6knnW8NzszqQIpxSZZJpOyg7upTaKmd3X3hW8/Uk5K3h+l2Z1lCCmdO+eyt5+pJ51vD9Vnk21uT1JPOt4bieGNnk21uT1JPOt4biSbKMmljZ5Ntbz9STkq+G4r/mDGzyba3J6knJV8No/Cw/8ALVxtcm2ryepLyVfDFnzU56UOas81TG1yYOOTRwq8nqS8lXjxGrD/ACF/ztc1LEw5TJGsyjFoqxPVPCryepLyVONNyTlpaEvm1913/lMzaGbLEzyYrklJ5v0xY1eT1JeSp4fS1trN4Rf8rn3V5iNnDAhGG0pSJLUzKxPVJQyediMenU5PUl5KnGTwzVjig/53furzYFMw0zSNM7dPbmqnJ6kvJT4zcWaPF5CjF4GdkBv4kY+hDHIsoQaDW+TbU5PUl5afHY4Rwcjykw4M8CshNpHYsZIIXIos0WVzl20+X1JeWnxkjrg7wrQZp2ZO068xFiRrFjNAr6l9Y3OXbT5fUm5afGYzCYYZFdmyacWmxhSE4K+25y7afL6k3KEukYgfP6bvLtpcvqTctJm0/qu8u2ly+pNy0uP9V3l20uX1JuWlx5sycsGXcDXcjXdDXdDXcjXcDXWG61M6NXYrkrkhtpcvppSjFStDZSuOpPqkzyy0yddKa6JF0CrtyrtyroFXRIukRaJMtU2ULBIpyBKnrZqUXjhS5vRvNmTkI6cZ5rs2TVRpgDZaIt+3TFOEbrthrpqdSDoQiAmxGf8A0g83g3cTXcTXcTXcTUHzhgcjjfuJruJprLqE2m20xNCCTXuIaUZ9ea7iajYZM+e0hWguvN11iMoWNxDtFdcjrrkZDM0tsjzz7ia7iahZz35K2gcWy39h4lMcZsDOBtvKbPpG2l5lkiAZ0ImieJZ6ICg5ZRi0cDAzVYnzjYJpYAtSZsk7Zo4tCrk1xxHz4WRs0astUN1xV+LZc+w8SnNoMDOZtlmemFWHxZj8Vp6obC8+NpspifUPC2/yCOQsZ/xnxO+ozNk2EmzavLIuI/7GForZVI5Q3XVW4dl37iMrxlAsGFDrSGNhtsK/WNFsmk2bQfol2G/sY3JfmBshYXPIEtQsSvrPib8Tt84u+TV/k+Py5ekdT1jQK7TbfeVXg2X/ACr8KPBwTCXqwxtT0DpQxujVWeseJv7OBTxGhwc5cbA+oOuXpOz54HO0GqDd542x5tWO2WFo/wAVB5RxF/ZRhsWISOEm+4OU1Xi8RbLY5TcLPESJBpxgMwiY2BlIWEdEcJx1wrwKMmJwkcuiyunYdQpu6hBoR2HrMRdM4l/0SQ6j5s2TbC1M1lYGnjYIg1ctowkaxhZDrVXqRb/3ubLNlmyzbEhiOUEiSic0ozGcjGtFcI1YMWJgnm5UXqaapjGe2aQojORjkmw4VLEjK0Vwh7gonLLQIE3IENvUeoVzCIcjmBIjxVk/RYUrGuybox65hSNPQKN7OtVK5gNbyt1rTnOcrjJMrtZuGcAu61NYI4gQk8h9a11n1aO8k8GwzZZss2WbLPbKLSXSgulBdKC6UEzMzIoiRNSBISOIjGgMpT3RyIEMyyexEncBGSR8KY5DhdFI0QV+hYujmWDAMM90ci15QPYRovIVeLwBGrKUaI5iAQRIFpBkLC0KU0KViRLQnI04HsueLzCOoypwkKt2vUmILjtWxzmhwKSzcHIgyVZNZtQclcTaR9OXeqAna7h0oLpDXSGukNMOLf5v/8QAJBEAAgEDBAIDAQEAAAAAAAAAAAECEBExAxIhQDJRIEFQIjD/2gAIAQMBAT8B/JjG44td3TyOdmXjIen6HFrtaeSWaJtC1C8ZDh6LC0/Y0kurp5JZ+MeeBJKksdXTySzVUhmssdXTJZrDJLJDNZY6umSzRLkStIlkhkc0Iljq6ZLJbkt/RPNIoavS949WA/Ilkk+STuxR+2KV3WWOrAeTyGhL7Y3chmssdWA88jdxSsN3pDNZY6sCWfjDNZY6liKaHE2o2xNsTajaclyWOnc3P/G5uf5KaOLXsNp04UTdH0SVq7Va1YG5eiyeK8RLxY1aiStdm5ehr7VIG5ehpWuvg/GtrxNpJ3pFcm7m5Jc0hSGRkMjzSX1SWFSOHSBtHwrfB+NX4idh0wqZVIm0ulivEiyWRu9E+LM2jfFlSNHzz+Fx2eP3/wD/xAAoEQACAQIFBAIDAQEAAAAAAAABAgADERASITEyEyJAQSBRBFBhM1L/2gAIAQIBAT8B/Uu+SLVU+b+RtBRDLeZaibQVz7i1FPlfkbSnwGBUHeNQHqZaiQV/uBha8auPUVizi/i/kbSnwHxqWUXjOW3wp8x4tfaU+IxY2EBvK3HGnzHi19pT4jGtqkpcJW440+Q8WvtKfEYOxC3l81OUuMqi6wUSd4wAOkp8h4tfaJxhbtNoCShlIdmFVvUVrAnALlceLW2g4SmNDEW6kRFyiO/pYyZVvinLxa20XhB2aDeK99DCxPasVAsq8cU5eLW2ik2sIFtGQNFULhV44py8WttE4/GrxxTl4hYCVGB2gqWFrTqN9TO8zvOo31DUvuJZTtCpETl4eW8yLLD52EyiZBv+pZGJ0MAbNlvFUjc4dzOReZHHuU2zDHqHNf1jWJA0nTf/AKgZlNmwJtBnf+Qq66gxGzC+DOb5VnTb7iOb5Wwqk6WnTb7isQ2VvgP9DjezmdQ7WiLlGFQ2EydmWUzcYVtsKvGLtKvGLthS3OFPc4VOQwq+oahHqKCTmPwA78QO8x1zRCSNcLXa+FrNfCqNJ1P5LFzrgReDMmkLE6CKuUYMpBzCdT+RVJOY4VBtCLxbqbfodZrNfH1ms1/ff//EADIQAAEDAQYFBAIBBAMBAAAAAAEAAhEhAxASIDFxMkFQUYEiMGGREyNCcKGx8GCCkuH/2gAIAQEABj8C/qW6O6rVdutO3UhVVCq1Xbq7t15VVSipVVVCqiVr7UdKdujvkqqUXdVVCqha5alemiO3SnbrznqFSi73UKqFUr00v8dKdujv7VVJXpy+OlO3Xn2/Gbx0p2685zk8ZvHSnbo75yFS/wAZvHSnbo7+wb/Gbx0p26O+YIp1/jN46U7dHfMGop1/i+TS/wAdKdujvkduhcU6+nZeoyqBRyF/jpTt0d7jtduU240yUMCFqcvjpTt0d7iZuCbcQL63Q37UchcJ0Wg+F46U7dHdG4Ju6ahf83Bo7Zjt0p26O6dc0BNDhzubtdDeJf5KgLxmO3Snbo7p2ygKXIHW5oKws+1J4VAu8Zjt0p26O6Le6/2qk6L/AGq+VhZ9rE/TtkG2Y7dKdujuvnssdr9Kigr4WJ/1lG2Y7dKdusLRLiVjtKu9obZjt0p26J5z7Y2zHbpT90d/bG2Y7dKfujutVxhcS1/suf0uf0tf7LiXGFqpmCtJHxlO3R6kBUqqNRPdQJWhXAfpcBXAVwrhXAuArgP0uE/S1cFrO6/Y2D3CmycHL1CLjt0X0Wf/AKVXgbKriuZ8rgC4R7ugXAFSRsVBOIfK9PpU4cWyqC3cf1IELkuS5LkgTeIXJclUKRmEaquuYgQuS5L1CM3yqKv+F6qZoFSqf4VVBocp0XJcl6hHsNTcrU2+PHune/00KwnTJKkqguluqwHxkgalYnaKiqsTdFB1GTzfiCjtnam5Wpu10lT5yxzKxd1i7KO2U75J7ppvaEMnnIR4UXkIZPN+Aaqe+dqblagW6bqTMbqMSgZabBQoVdsp3yAdgm7XtKbkMd4yE+ckoZCG6yv/AKodP2g4mR29hiblYmbXS3Tkp588nyUX+BeH/a+RkO9/z2UnzkjnyWF2ipdA4ljOgyYxyWB3i/A3yViOpyf9roUO05+w3CJTQdcrcIlNB1i6CqNkZKNog0cry3uqtodcji1q/l9r+X2vWYUNyyKOXpnwv5qbT6UDLNnT4VMSriU2lfjLiLaTfibxLC9tOX/Ptb9bzZ2LRLdS5fsaAR2KbZ2TcTzWvJfit2gE8JbzWJvcC5lnZBsuH8kbK1aGviac7v1YcXypIZgBgpuCJLoqhZWrWyRIwpzjoAnC0Aa4V8Ivbqm/ma3A6kt5JzhyCY86kJ1k8AVhqxOjWEbKwaJbxFy/a0A/BuaGjE9xgBRasbHdpQgYnOMAJv52twuMS3knOHIIvI/YKQmvdqU6yfAboCnNj0RIVi0fzdBVnZ0hwJWJokyrEs0e6D8J7xqAg7mQvxRZYolUjEmta39xMYe1+q1Wq1zeoSuALgC4QuEKBc97Gh7bQepswnktDcWjZ0TbaygkCC08021tWhgZoJUMEmQUfyWWAbyrO0s2YsIPNfmtgG0gNF7g4RLyUwNE+qqdDZYRQ9kLNmhPqKZaYsfI0iiLWCSmttGCzYDJrMp4GpCY06gK2DqEvxMKw2ggyU99mwWjbQepswnlzQ3Fo2dLmPs+NhkSvXZhjN00s42GQmttGCzYDJrqntGpCs3njayITWuEEK3/ACCGvILSi4CGYAAmPs4LmGYKFraMwBogCU0NEnECmPs+DFJHZPa3UhNB5Bfkj04IufaYfSW638AXAFwBcAVGj+m//8QAKxABAAIBAgUEAQQDAQAAAAAAAQARMSFRECBBYXFQgZGh8bHB4fAwcNFg/9oACAEBAAE/If8AR9+uKyTsmEAmXbd4BLG/WsqbesZoJ5jtoeJgJHV7d4I49XTJAChc3I7ToQxNIrzG9YgcUbGe8u/8NMmu3p+QDQEnVDmD+ERVCnvMlE3F4mynvyn/AFTR9D7mpH0tmbnG0DEdUY0p2ljMzZNvN4XdU0wU36xVWtvDP6qiMIGOCHmK6Gu7EVrbyZ/S2Zv8bBzMnpbM3O0chg5mb1Jkb4zwjji5mf1FCXZZKnHfHi5mb1FCfXnwBHfw44OZk9PBgWro1ArYtwko1CaPAR38eODg1WgtlS6d+Ob08kfqZRG4+IviJl7eJCunVCa+AQbSJpD+Xjn9NMC0eyNaRSmmRjrwMuHhlrpdZqBgBxOL5j0lWOwTywUeYrxzemOxQW4gOMQj0PefNz6rFo8MTME43zLoSxv8EzTzGm3/AK8CDmdYNtCdEy+mOh14+FV5CfHI/jY/geJFZeCZZb1dpawtT34Xxs5fTc4PqRkMbVJREaQHIMK2i+Ara36Iide5Kq/zMfqXKDRF8vXaXw0PuE2qN+HgwCkJqF167I3rG7eCBoOGD1KNBqlVKuUU9jrGOu/oeJZx0+otZoMj0mrXTrujECundABRj1WZLN+PEar6cQAAoIpOxmibXhJXR69Nnq0yVthISvN/rkq/VhH7KaK9C/W1H7j1xd37jhrmA95lvliPTHfx3Yd+HfQL0/EMD5YYAfeayhK7TUPO9Mb9pjMgfEnQfuxUatXBWKbE3/7QXEVvBjufknc/JO8jFozFsmDB9wxjp7RokYq0Xa9YvSLv6NOZtdguaEvlVMBu0Ctug8nkj9yIYQe0AMH+OotlvaZT4Y3WFgaLeyRmutX1FJpqtUzhf7IH6ur1n9xP6if3E/qI2aJx0567z+4j+NOnXxLu/wAczAVtGCYubTiDtP7iVfwjvsEAWNnKHrrsI4sPBcOqe8GtHyIN8qcBT+2LP7jmcBEYO0/qIfiQlXmEzy1cptND7oSVG3J9Zh+CUSsIXvFYuW3KxXSwv1LVdB+oanL9JKIhyDC7/YROsmk25LLr6REunVh9EEqEK6HTeLqNORR/8CU/YG8AUKIAoCd5U9wbRP5A5Bo85RKNpSut6lquuufL38y+m8efrX7wD2NuXRj0ZQn2EvJ7Gatz+nldeByCe1Lw6nHtmrnmuryayuluTsAkEAwcRcwlSpb2cisefHUy1ntEVdfO6ffPp8q+Nl+FzSXukZjUVHv1nzdd+VKNesAMYCoLrDNPwG3jlfweQEWYUNzxCtwVAQbVyVbYg4++CFQTDxJFghu+Xk3AutZdvJa0XHYjiBRRjny90+jy/QeGJZTBOY2toQYDDktQeiTMcTAeIpR2XkXw+JerfSJ0oXbhxuhhrF7ot+GALVj1ODN7f1PGg7vI5ZMvErFqsuFwlLcGq9nxyYfLhaWTDtFRVahtBEExzp36XcAuganK/PQbhC0NRwR42XLpDXUhjjcEroQ8IHE0Oia7MS5Eaoujwt032lKyGxqwMVByp3fpM6R78aqT9EdYo2ZYZBQcjCTUt2JiCvbUmginfQgVoR0Y5SCC9vjWp0fcFrAy/wDeqGWdp8zvHzO8fM7T5g3jg76Fu0Iou6sw94ZQeTQQmS7RpB0BXWd+CHKn2Qg4oVYODGkreMoroqu7InhCldWpFOoWo8KAA3QrBCZ8y23wtZd4+TOlwAAEtTR4Eh1rpFxBvo7RFELVoRFR2sw8EgJKhuZ2k+XKJm5HBl3iV62S5URZTeuIWQWY8xQAXyavWVygs9XWDQJrEHpaj10g01EpjVxopzBJjaLmk6iyj3JtVNZ0Ol4uUQa2sbnxLUXnh2nzO0+Z2nzO0+ZRwnLT003n42fjZ+Pn4+VoA2OFKtyWRE5ZRaCLtkVSEQBDs6wtWal1iBRUaOaadsCaMxewL5dcbXQDwys4C6q0l7zkuvZA1+GErtPTFIsGKUX3lJtslSAVaQhC0ESCze2cTKA2ZW4NqE17GIW4NFGiMHtBVGNcle0foNTYYBkSa2m0Mm0gQQGrHuqa45We8uegQddJ9NlKUlo9MwdzeoLcoRGZ0IVmvXst4V11gjjqRGNfuS+t8FsKAd3H8bPxM/Ez8TG7A9j/AFv/AP/aAAwDAQACAAMAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAQHAAAAAAAAAAAAAAAAAAAAAAAAAAAADVHSEIAAAGAAAAAAAAAAAAAAAAAAAADAAgTDRBfhAAAEAAAAAAAAAAAAAAAATAAAAAZj0DAAAAAAAAAAAAAAAAAAAAGCAAQJEOeJAAAAAAAAAAAAAAAAAAAAQjAEDDE3dTAAAAAAAAAAAAAAAAAAAAKrA2VhBvZmAAAAAAAAAAAAAAAAAAAAWLYv1qfYi6AAAAAAAAAgAAAAAAAAAAQjYSWcSiz1AAAAAAAAAAAAAAAAAAAAQcCffRRIAUAEAgAAAAAAAAAAAAAAAAQUw2wAVueGAAAQAAAAAAAgAAAgAgAAEJAAAAF08+gAAAAQAAAAAAAAAAAAEOI2d/wCzbdnlAAAAAAAABAAAAAAAAEkqcQMEAAEAcgugAAAAAAAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAAGycAB/YgBNyABMbgAeCqwBHRAAw+AAAIwAIawgC45wFwEi1YEHwGwLwH/cAAANAAK1KRDEIgAKEYAe4gwGsFALeakAAAAAAAIAAAAAAAAAAECAAAMAAAAAAADwHTKDOKNEIBGOBFAIAALJPLALbHiAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/8QAIREBAAICAgIDAQEAAAAAAAAAAQAREDEhQCBBUFFhcTD/2gAIAQMBAT8Q+Js13m2RUEnvQHlT03a2TfjQMQ3Pag+0VdRnmHNdXZN/iVcppMb+rsm/IV4iVvw9/V2ZtyJ3+Hv6uzNuCasDgm+ILMFqNS2b+rszbDgGIBUWLrbqWANRaI3nq7uDgIAGchOL0TgTWdvV3ZxldnglfJqCEXXg7eruwgmEhoRW+Lt6u7Nn+Dt6gnRHLZa3c+9n6T9J9bCrYyzsuAZs6ZTRP0lr52kszgp+JEUlxSYagrBQUuWbi1xn+hkCt4SW8Qtojqq2HBSozpx9YT1wdejAG1MJngtOaBbUDu+Ja4xdZ9S0qrHvGzn2ZpmzGtvKb2gXTGUfBFDKKEvQg8YUpPeBKXZhgtyn3KNbYGmyJyDTDmKXLwDB/cAwEA3BRslT9vgSveHHrrle8OPnv//EACQRAAICAgICAgIDAAAAAAAAAAABETEQIUBBIFFQYXGhMIGx/9oACAECAQE/EPiYybR2YnPMpFhHDGQppSnfjPFpzK8NbeDp0OpRj0Cmtx8NxafKPoZYy248r8MhjbEJK5PKvDNAyrPAnFqMphSxvI/ZSOgR64RDjFQaqbBtkrGwhaQlKFkkOWJSxqE8Wo/zGNY9ho1I2bmSrXmvi1Cyi+hIWMK6DHAKNX4VXFoHltFLo/MCCF4lXFoF0/gKuJYMWpB6EE9D6/0fX+iOxAgnYR+SwRVwnPQ+xiV0JVIjxgbrQkUhzw0xT38RIIBl+kfzJhwCED2EWyO1n+3RlIlG8BKpfeEJLG2pwLEfQmJh3uHbcR7mFINE+ToLkk8lI5obD9l41qtkQfC7WElPzhUzRJOZGMYSIanC33OE2q8Xb7EktvHc6by6QhfZpDeE05aWG0anhjSES9iMeq9YQjTG2FKNOioMhZe05Csbh7EJDNxrr4F7axXtx36E+qF89//EACwQAQACAAMHAwUBAQEBAAAAAAEAESExQRBRYXGRobEggfAwQFDB0fHhYHD/2gAIAQEAAT8Q/wDh4G6Rr8Lj9njsx2KDbZqi9b5ZMrht1l6ypIbxv8z3SIyAol4yxN4Kl2TxVKAF3mDK8WmmHvBRQm8/Ld8nfvBKcBuS5aoek6S9eQYPSLW3uFS1clZUhG8wZR5rTDACxE3kvbfpvwGG8WNfiu6Tung9HBBSXLtfAYnSXCQ9XSOEbgVFvZRw6Q4BceBlOFjTBBM/RdgHTMvtLgOPq/kSgVVa8z8V3Sd28HrpieJcxVruzI8odR0gmgjuSMYA3XhBrI0ZL9pQBuGr7S/44fFRwpM1bhO7eT62P3ncJ3zwfRqE0JxJfcJtfQlvQ+900iVyarfo7t5PrX6L+47pO7eD6favL6u9eT0V+GXWTu3g9bVmDX7ht7V5fV3Lyfiu+Tvng9YWLcyqXNl1WVt7H5Zfoud28n4lyi6qdw8HqACCOSQhu48Q3TStvb/LLly5ezHzfk/FPrp3jwelyl8eaiPgSx8NdvY/LLly9lzJ8fk+jf4Bi66d98HoxUu5cyOigOUuO1GkfwGUvcH9be3+WVjAAhMgLZiZjQLFeUuZRXz/AJPo4fa4/TZ3qd58G1ymJ+bKVXeP6lK4oNPyqH4uO18wYFNBix8WuQf2UYfgRrbQ56osGd78n4lj6id48Gxly0KGhnCAirWMXgp7wz5M0lB+FRj03ReZBs8zoraCUGzHM4VqwSwLQYX0g3DqDWEKra5sHGXO/wDk/D1tXUzFzvgjh6GbGgKIeJcoBqJeV6Yq+RiSz42EPy6BDLZYS3k5szYuhdD+jjGrYbDXeBuPMrbwU8dUWJfQTFpCxRrAHlF1fk9Fy/o5/eLrZ3nwS57oqy27/BHq3h3iA/CyYVr+rZlKro2blxY4bLiuQgq24XV258OEI2VW1ly7iAEQytup3Xyfiu+zuvgip5wXGKm9l4ZsTRgW5LzGB8osuDLvCsZcIUazp/3LqUu8V/rAdQM1zW9j6byy5cuXLjvnfJ+JZ3ud98EVvigI+ZkN7AVEQN6rQhEgQvMvEcpg1nTdMCjlLsOMvLatWfL/AGCRNgGzsXlly5cuXH1Hk++v6j6uPr/BOVgF1DBVeRmb48ato0G7eYJxHJ0NzLz1MdjxcuMQKmUuw4cYgLMTB59xDAAMANNq6Ty7Lly5c7p5PrX94uvnc/BKw0bO7u4hJBiZCn6IOQFAFBB59lygIstCz4PGC7nOuXE8eEr0ds8suXL2vrPJ9rj9ppF18RwewsDAxmLF66cRftgVtRmB1x9S6Tyy5cvZc755PxLls9h/xt5VGH030Hlly5cvZ3zyfd36rly5frV3rwfT7B5Zey5cud48n4PD1vKlr97wQi+cAmRX2s1L5CwepyU417oJ/dB9PmpoxzR+pnB5khV8uDAmCA1aOJGXAeP1M4iZ7Sd48npw+6x+gJYHAJbiRyurKjU3N3iYrKIMrigdt2NdoMsZzsG8tDLe8VBv2J/YfOPM+cfuJH7T+weD7Rf7jpHzRxvOWIh0QJir3r3zmKFONXuYznpgHx0nD/wrZ3vyfhMLW8JdCMoRuo6Zy8vOiy8P1oDzc7iR+pkC8l+Z2yjMkDkeupWyohMQec77Bjd2N5TxKckyVI5er/uKl3uDMeiCgd2Ec9zylQOdGO+UGyxs+/vbUr6F7L+1v7mv/WYjalpeFR0opFzwp4W9NcFZa2nGAVaXu2CPSJUq9cjMUDeOa4+p+Ld4l0R9jMKKs9WQ4BfBDcRUYjNzSKBjNSyATJkjn6a9dss733R9NwliLWqcshc6csr33QAI2OvoYwGvMHA5syiDddKLA8K4yBfkLg8n04LZQ90TI6s68AktrWQQCNjknpRmBhuHSUKAWfpHIhk6cWcJ0gVtVfExICtGXScI6RiNTAmJDmAQd7p6UArgEoyyhwPzvC2XnOLiARscR9IcP5VCjI6QehNyEVGFoZv5D1hcGrf6DaxyDexnCW9ddxBPCIziHBLIlz0Tl/1MZSsU6cJptd3Wvub4NDf+g8IOAGgVHyBoLmCLj/p5Rwt4aujR2szr4XOAdItghOUpmYgRgjrGxBgOWey/Sq5X6R23B8vpw3ZfsIz2GwqdDAvFbiaVUfdu8wPRlMwXLWVcx6A+doYbHoGXCY1c9HoZS/lhDaKN+8zD+Rc1DfPLatTUXiEUMT7ztYtLBPJx/cMTa5rkHDL+wHKADaCFqU5in57bWPwf7oZSyArWjVuhDWrFORh6/g26O+Y8vpqs+CTNQqlMOVxaatovXeIhiLuyjhK7uOKZrj6FqD2o8gavlgr0IQF7NGLf9QrJ/cGyzL0fJN0NrFXYfd/5HJZC++P727uV6H/sY7KzgmG1mcGye1EFFbcfZVOJh/IKqwEdqOUKvtHFMBXp/wBhlsYl90FKY26ypjX54w6yFmJHvA6po1juWEQACgNPW+l+k7h5fTg+FiTskBgEcEdZcKVFq3Qo1gNy/wA9GCVzo3vSKgcD/o/ra2Dw/wAn9S0N+9Gj09FQPwrZcQhtmMffcRKyvcgbiAAAoNq5h+c7veGgcWuQ8grEsZcOGCgG+d/kpW343qe002m6o0TN3vaHCrA7gm5g3EGcPmHKcK3EdVgoun/W1h+bvhlFNZjb5/ItRbLu+aRmBRYmu2/QuaREwyie2rNMX0lJSUTDEjlShNHYO16mo75cOTiCpOwolmTmbbE9bqVxYFmQ58duVqhe50YK01Erg/N+1ygdKIJuII4vy5zEAx5HmFtSFs94QXTb+L6UG9DXVP3FiEN9g+0d6BwcPLCHtbK3zHSB3PQGQegWU5RKEZ5zlugusOj/ALQ65Wjk6rFjIc98CpexgJJcJVNwy2Kd0qQ0/wBIkxFKjXD0YfWr6FfWqYfQwlejDZX259oR+hf2OWhe9qf4Kf4af4af4KALQm8lwY3VBfkYZsAcdqg7m73i9LZAurFknaNWZjkxtvQvVKmDhLkIOwHMTiiiaSr2ZACoaU1yixwa+SG66lWPxesR3QSRo6FaIzDKQ/bSXFSdxCxx+Yw0uoZcQRpTMW2ZUYGgkWRQvGGiGsgu6Pj0sqazXrWMOO6V6pUZw0H0BfkYawVxDqDvN3vsziJehd67iCQnNinuRz9peXAO1Zvd0azhW7dkWzhbo6yWGsc5lCNYxhnVY+0xyOi9YI15SqrEWVQBZYlwXrVJBoC84qejBsKvCK1KK6OSokSU1pu90BO6tSsTmMqESsq3rKHCk6ClxMtJDelZxNqt6OB4uCc331hma4JRdGmKFF7P8FP8lP8ABT/BQdSncJ6TwEsKXUr/AIZ/iZ/jZ/jYCG8gomcPi2siFWPKIbQSqBzXnHnt9kF0ZaWCZOZUmVRkrCtxYLBWE2XlRlAkGwOPmmTIskW1Xftq7JrG0KcJQBP5FW3vFFAsdfXG3TA8ArUo8ctcdOEocxWro641+pfYbQLoLiyzQEBogVlKnxy6tTCYsbiuklMDECrRwymcIko4LnZDsGdUQqxlLQoFQOC++x9mP5Vua3S1WBfd7Bkc4PqQ5wzGBEqwZkKZExBjpVqRO+ThHCF4lpNWMgNWnMilggiEZm7dBPi2JmjCplkDAGqS4AqwlmZallY4oUmLjLyxK4BwQcTdM6fKC2zfKLCTcgXN4PdW8qs5mQejD1jhvDPZUVbbOWf5Gf5Gf4GBz/JoTZf3FTP6VerD01+Cx/D4/Vv7G/wH/9k=" alt="Logo Tradoor, Gold Trading Community: pintu terbuka dengan grafik candlestick dan panah naik" width="840" height="630">
     </div>
   </div>
-
   <!-- KENAPA XAUUSD -->
   <section class="sec wrap" id="kenapa-xauusd" style="padding-top:0">
     <div class="why">
@@ -244,7 +265,6 @@ footer small { color: var(--ink-soft); font-size: 12.5px; max-width: 90ch; line-
       </ul>
     </div>
   </section>
-
   <!-- CHART XAUUSD OANDA -->
   <div class="band" id="chart">
     <div class="wrap sec">
@@ -285,7 +305,6 @@ footer small { color: var(--ink-soft); font-size: 12.5px; max-width: 90ch; line-
       </div>
     </div>
   </div>
-
   <!-- BERITA HIGH IMPACT -->
   <section class="sec wrap" id="berita">
     <div class="sec-head">
@@ -340,7 +359,6 @@ footer small { color: var(--ink-soft); font-size: 12.5px; max-width: 90ch; line-
       </div>
     </div>
   </section>
-
   <!-- KENAPA TRADOOR -->
   <div class="dark" id="kenapa-tradoor">
     <div class="wrap sec">
@@ -359,7 +377,6 @@ footer small { color: var(--ink-soft); font-size: 12.5px; max-width: 90ch; line-
       <div class="cta"><a class="btn" href="#gabung">Gabung Tradoor</a><a class="btn ghost-light wa-link" href="https://wa.me/62895425022760" target="_blank" rel="noopener">Chat via WhatsApp</a></div>
     </div>
   </div>
-
   <!-- KOMUNITAS -->
   <div class="band" id="komunitas">
     <div class="wrap sec">
@@ -391,23 +408,21 @@ footer small { color: var(--ink-soft); font-size: 12.5px; max-width: 90ch; line-
       </div>
     </div>
   </div>
-
   <!-- ADVISOR -->
   <section class="sec wrap" id="advisor">
     <div class="advisor">
       <figure class="adv-photo">
-        <img src="https://drive.google.com/thumbnail?id=1NEFCfFNKoNs16XOirGgxlDS_DxKSgoNF&sz=w900" alt="Reyner Lie Wijaya, advisor Tradoor" width="640" height="800" referrerpolicy="no-referrer" loading="lazy">
+        <img id="advImg" src="https://drive.google.com/thumbnail?id=1NEFCfFNKoNs16XOirGgxlDS_DxKSgoNF&sz=w900" alt="Reyner Lie Wijaya, advisor Tradoor" width="640" height="800" referrerpolicy="no-referrer">
       </figure>
       <div>
         <span class="eyebrow">Advisor</span>
-        <h2 style="margin-top:10px">Reyner Lie Wijaya</h2>
+        <h2 style="margin-top:10px" id="advName">Reyner Lie Wijaya</h2>
         <p class="adv-role">Advisor Tradoor</p>
         <p class="lead" id="advBio" style="margin-top:16px"></p>
         <div class="cta"><a class="btn" href="#gabung">Gabung bersama kami</a><a class="btn ghost wa-link" href="https://wa.me/62895425022760" target="_blank" rel="noopener">Chat WhatsApp</a></div>
       </div>
     </div>
   </section>
-
   <!-- TESTIMONI -->
   <div class="band" id="testimoni">
     <div class="wrap sec">
@@ -421,7 +436,6 @@ footer small { color: var(--ink-soft); font-size: 12.5px; max-width: 90ch; line-
     </div>
   </div>
   <div id="tm-lb" hidden role="dialog" aria-modal="true" aria-label="Testimoni"><button id="tm-x" type="button" aria-label="Tutup">&times;</button><div id="tm-box"></div></div>
-
   <!-- GABUNG -->
   <section class="sec wrap" id="gabung">
     <div class="join">
@@ -468,7 +482,6 @@ footer small { color: var(--ink-soft); font-size: 12.5px; max-width: 90ch; line-
       </form>
     </div>
   </section>
-
   <!-- OPEN LOKER (sekunder) -->
   <div class="band" id="loker">
     <div class="wrap sec" style="padding-block: clamp(36px, 5vw, 60px)">
@@ -485,7 +498,6 @@ footer small { color: var(--ink-soft); font-size: 12.5px; max-width: 90ch; line-
       </div>
     </div>
   </div>
-
   <!-- FAQ -->
   <section class="sec wrap" id="faq">
     <div class="sec-head">
@@ -513,6 +525,45 @@ footer small { color: var(--ink-soft); font-size: 12.5px; max-width: 90ch; line-
       <p>Chart XAU/USD dan kalender ekonomi ditampilkan oleh TradingView. Catatan admin ditulis oleh tim Tradoor.</p>
     </details>
   </section>
+  <!-- ADMIN -->
+  <section class="sec wrap" id="admin" style="padding-top:0">
+    <div class="sec-head">
+      <span class="eyebrow">Admin</span>
+      <h2 id="admTitle">Login admin</h2>
+    </div>
+    <form id="admLogin" class="adm-wrap" novalidate autocomplete="off">
+      <label for="admU">Username
+        <input id="admU" name="username" type="text" autocomplete="username" required>
+      </label>
+      <label for="admP">Password
+        <input id="admP" name="password" type="password" autocomplete="current-password" required>
+      </label>
+      <button class="btn" type="submit">Masuk</button>
+      <p class="ok" id="admMsg" role="status"></p>
+    </form>
+    <div class="adm-dash" id="admDash">
+      <div class="adm-top">
+        <p class="lead" style="max-width:60ch">Klik <b>Mulai edit visual</b> untuk mengubah teks, foto, warna, ukuran, dan susunan semua bagian situs langsung di halaman. Setelah selesai, klik <b>Unduh index.html</b> dan unggah ulang ke Cloudflare Pages.</p>
+        <button class="btn ghost" id="admOut" type="button">Keluar</button>
+      </div>
+      <div class="adm-actions" style="margin-bottom:28px">
+        <button class="btn" id="edStart" type="button">Mulai edit visual</button>
+        <button class="btn ghost" id="admDl" type="button">Unduh index.html</button>
+      </div>
+      <form id="admForm" novalidate>
+        <div class="adm-grid">
+          <label for="fWa">Nomor WhatsApp<input id="fWa" type="tel" inputmode="numeric" placeholder="62895425022760"><span class="adm-hint">Format 62..., tanpa + atau spasi. Mengubah semua tombol WhatsApp.</span></label>
+          <span></span>
+          <label class="full" for="fNotes">Catatan berita high impact<textarea id="fNotes"></textarea><span class="adm-hint">Satu baris satu catatan: waktu | judul | catatan.</span></label>
+          <label class="full" for="fTm">Testimoni<textarea id="fTm"></textarea><span class="adm-hint">Satu baris satu file: link Google Drive atau ID file. Awali dengan v: untuk video. File harus dibagikan "Siapa saja yang memiliki link".</span></label>
+        </div>
+        <div class="adm-actions">
+          <button class="btn ghost" type="submit">Terapkan pengaturan</button>
+        </div>
+        <p class="ok" id="admSave" role="status"></p>
+      </form>
+    </div>
+  </section>
 </main>
 <footer class="wrap">
   <div class="foot-top">
@@ -524,62 +575,58 @@ footer small { color: var(--ink-soft); font-size: 12.5px; max-width: 90ch; line-
   <small>Peringatan risiko: trading emas dan instrumen berleverage mengandung risiko tinggi dan dapat menyebabkan kehilangan seluruh modal. Konten di situs ini bersifat edukasi dan bukan nasihat keuangan atau ajakan membeli maupun menjual. Kinerja masa lalu tidak menjamin hasil di masa depan.</small>
   <small>© 2026 Tradoor. Seluruh hak cipta dilindungi.</small>
 </footer>
-
-<script>
-/* ===== PENGATURAN YANG BISA KAMU EDIT ===== */
-// Link grup (isi dengan link WhatsApp/Telegram komunitas). Kosongkan untuk memakai pesan biasa.
+<script id="tradoor-cfg">
+/* ===== PENGATURAN BAWAAN (dipakai sebelum diedit lewat dashboard admin) ===== */
 var JOIN_LINK = "https://wa.me/62895425022760";   // tujuan WhatsApp setelah pendaftaran
 var LOKER_LINK = "https://wa.me/62895425022760";  // tujuan tombol open loker
-// Posisi open loker. Hapus atau tambah sesuai kebutuhan. Kosongkan array untuk menyembunyikan seluruh bagian.
 var LOKER_ROLES = ["Admin Komunitas", "Analis / Mentor", "Content Creator"];
-// Catatan admin untuk berita high impact. Tambahkan objek baru di paling atas.
-// Contoh: { waktu: "Rabu, 20.00 WIB", judul: "FOMC Rate Decision", catatan: "Hindari entry 15 menit sebelum rilis." }
 var NEWS_NOTES = [];
-// Deskripsi singkat advisor. Ganti dengan profil dan pengalaman yang ingin kamu tampilkan.
 var ADVISOR_BIO = "Mendampingi arah komunitas Tradoor agar anggota belajar trading emas dengan rencana yang jelas dan risiko yang terjaga.";
-
-/* ===== KODE UTAMA ===== */
+/* ===== KODE ===== */
 (function () {
-  document.getElementById('advBio').textContent = ADVISOR_BIO;
-  var notes = document.getElementById('notes');
-  if (!NEWS_NOTES.length) {
-    notes.innerHTML = '<p>Belum ada catatan. Admin akan menandai rilis penting di sini sebelum waktunya.</p>';
-  } else {
-    NEWS_NOTES.forEach(function (n) {
-      var d = document.createElement('div'); d.className = 'note-item';
-      var b = document.createElement('b'); b.textContent = n.judul;
-      var s = document.createElement('span'); s.textContent = n.waktu;
-      var p = document.createElement('p'); p.textContent = n.catatan;
-      d.appendChild(b); d.appendChild(s); d.appendChild(p); notes.appendChild(d);
-    });
+  var $ = function (i) { return document.getElementById(i); };
+  var baked = document.documentElement.getAttribute('data-baked') === '1';
+  if (!baked) {
+    var bio = $('advBio'); if (bio) bio.textContent = ADVISOR_BIO;
+    var notes = $('notes');
+    if (notes) {
+      if (!NEWS_NOTES.length) {
+        notes.innerHTML = '<p>Belum ada catatan. Admin akan menandai rilis penting di sini sebelum waktunya.</p>';
+      } else {
+        NEWS_NOTES.forEach(function (n) {
+          var d = document.createElement('div'); d.className = 'note-item';
+          var b = document.createElement('b'); b.textContent = n.judul;
+          var s = document.createElement('span'); s.textContent = n.waktu;
+          var p = document.createElement('p'); p.textContent = n.catatan;
+          d.appendChild(b); d.appendChild(s); d.appendChild(p); notes.appendChild(d);
+        });
+      }
+    }
+    var roles = $('roles');
+    if (roles) {
+      if (!LOKER_ROLES.length) {
+        var lk = $('loker'); if (lk) lk.hidden = true;
+        var li = document.querySelector('a[href="#loker"]'); if (li) li.parentNode.hidden = true;
+      } else {
+        LOKER_ROLES.forEach(function (r) { var s = document.createElement('span'); s.textContent = r; roles.appendChild(s); });
+      }
+    }
+    var lb = $('lokerBtn');
+    if (lb && LOKER_LINK) {
+      lb.href = LOKER_LINK + '?text=' + encodeURIComponent('Halo, saya tertarik bergabung dengan tim Tradoor (karir).');
+      lb.target = '_blank'; lb.rel = 'noopener';
+    }
   }
-  var roles = document.getElementById('roles');
-  if (!LOKER_ROLES.length) {
-    document.getElementById('loker').hidden = true;
-    var li = document.querySelector('a[href="#loker"]'); if (li) li.parentNode.hidden = true;
-  } else {
-    LOKER_ROLES.forEach(function (r) {
-      var s = document.createElement('span'); s.textContent = r; roles.appendChild(s);
-    });
-  }
-  if (LOKER_LINK) {
-    var lb = document.getElementById('lokerBtn');
-    lb.href = LOKER_LINK + '?text=' + encodeURIComponent('Halo, saya tertarik bergabung dengan tim Tradoor (karir).');
-    lb.target = '_blank'; lb.rel = 'noopener';
-  }
-  var f = document.getElementById('f'), ok = document.getElementById('ok');
-  f.addEventListener('submit', function (e) {
+  var f = $('f'), ok = $('ok');
+  if (f && ok) f.addEventListener('submit', function (e) {
     e.preventDefault();
-    var nm = document.getElementById('nm').value.trim();
-    var wa = document.getElementById('wa').value.replace(/[^0-9+]/g, '');
+    var nm = $('nm').value.trim();
+    var wa = $('wa').value.replace(/[^0-9+]/g, '');
     if (!nm || wa.length < 9) {
       ok.textContent = 'Lengkapi nama dan nomor WhatsApp yang valid (minimal 9 digit).';
       ok.classList.add('show'); return;
     }
-    var level = document.getElementById('lv').value;
-    var need = document.getElementById('kb').value;
-    var extra = document.getElementById('ct').value.trim();
-    // Pesan langsung ke WhatsApp
+    var level = $('lv').value, need = $('kb').value, extra = $('ct').value.trim();
     var txt = 'Halo Tradoor, saya ingin bergabung.\n' +
       'Nama: ' + nm + '\n' +
       'Nomor WhatsApp: ' + wa + '\n' +
@@ -593,32 +640,384 @@ var ADVISOR_BIO = "Mendampingi arah komunitas Tradoor agar anggota belajar tradi
 })();
 </script>
 <script>
-/* ===== TESTIMONI & LIGHTBOX ===== */
 (function () {
-  var T = [["i", "12I7f2rX-1wzkZP0MwSHoT_dc_KdqXhYZ"], ["i", "1WIlje3IdYk4_DUYLtpXHGQNWxzqWD6xN"], ["i", "1rK5dNszlJMBFKW8sTxZz1FKUdWH4H6Ic"], ["i", "1iEsRyOkozMoI6hpwuwU9coGY0d99Tgnz"], ["i", "1dj72rnP60FIeWbnv-aIi-mXeXSC1P3fT"], ["v", "1Cha7mxiSnoCntNye4YdggWo1oJdWmzoj"], ["i", "1oIJhf4CxpevCo-aOt8ZVQ0LMHRiG9hBN"], ["i", "1cl3sOBR7B1Weagb2RkB1kA0OX4hZEDxS"], ["i", "1oYVo9clNmcOBKKCVJXTlm0NrGP7_GpNk"], ["i", "1CWmp1eN4S9QbPX-BjmFYpI5bq84KyNbv"], ["i", "1rkG9y-Aa1JvRwH8G4w44HFfBmeIeB563"], ["i", "11FddPpScb-0wG_mD1VMBciy4T4eweMTE"], ["v", "1NcXyHrd2IXOjfwFgGHtRoPSXan-R_WlO"], ["i", "1kji4CT1X3qhPdVjzSVdOLnmaiv7DE_mi"], ["i", "1v4kII4-Goh6mzc86ALaiJGDbhY7MSEjj"], ["i", "18C27Z4JXKVPJV7tsgCBUfg-q-4k05LH5"], ["i", "1yhrVPLVYRSJ1EeV9DOaHiVcVHuSDfgO0"], ["v", "1srJad_7MflW4Uq3mHRe4os9mz1Tdohst"], ["i", "1JWtPDbfVsjUUrRD3H_yvWTH5m73AsgQn"], ["i", "1JVrrsaTj6mi9v9ztUo8ehXyth5VavI_w"], ["i", "1g1OaCFF5HrFd3-kpUJ0asiubpKlMmPyM"], ["i", "1-uFSEnyqkx06uqGaV1ksC4yTM0torbn0"], ["i", "1XOlSzkZOYMzum98w-P9Kid6wdBPWNaOB"], ["i", "1PE45pBNkBsZ4Rl9QdVVz3sprH3HgQxrX"], ["i", "1AuwXlTuDSZVHcrUU7Z6ToJgg-eECLTYl"], ["i", "1-9x8rE8XV6OiiV-06LOckPORrSgHvMRE"], ["i", "1iXQ-OfBxbK41vD0svybjHXB5qPj4B97e"], ["i", "1df0TSbTDAXrTV2HdH-LjKOpqmfGxkvsI"], ["i", "1iueltrU-AqnyFdVyRpFYBFRPE7dTlVQo"], ["i", "12HG3nDaq5aUrv04wAJdxQx94DjyWTx_G"]], SHOW = 8;
-  var g = document.getElementById('tmGrid'), more = document.getElementById('tmMore'), lb = document.getElementById('tm-lb'), box = document.getElementById('tm-box');
-  T.forEach(function (t, n) {
-    var b = document.createElement('button'); b.type = 'button'; b.className = 'tm' + (t[0] === 'v' ? ' vid' : '');
-    b.setAttribute('aria-label', (t[0] === 'v' ? 'Putar video testimoni ' : 'Lihat testimoni ') + (n + 1));
-    if (n >= SHOW) b.hidden = true;
-    var im = document.createElement('img'); im.loading = 'lazy'; im.alt = 'Testimoni anggota Tradoor ' + (n + 1);
-    im.src = 'https://drive.google.com/thumbnail?id=' + t[1] + '&sz=w480';
-    im.onerror = function () { b.hidden = true; };
-    b.appendChild(im);
-    b.addEventListener('click', function () {
-      box.innerHTML = '';
-      if (t[0] === 'v') { var f = document.createElement('iframe'); f.src = 'https://drive.google.com/file/d/' + t[1] + '/preview'; f.allow = 'autoplay; fullscreen'; f.allowFullscreen = true; box.appendChild(f); }
-      else { var i2 = document.createElement('img'); i2.src = 'https://drive.google.com/thumbnail?id=' + t[1] + '&sz=w1200'; i2.alt = im.alt; box.appendChild(i2); }
-      lb.hidden = false;
+  var $ = function (i) { return document.getElementById(i); };
+  var baked = document.documentElement.getAttribute('data-baked') === '1';
+  var DEFAULT_TM = [["i", "12I7f2rX-1wzkZP0MwSHoT_dc_KdqXhYZ"], ["i", "1WIlje3IdYk4_DUYLtpXHGQNWxzqWD6xN"], ["i", "1rK5dNszlJMBFKW8sTxZz1FKUdWH4H6Ic"], ["i", "1iEsRyOkozMoI6hpwuwU9coGY0d99Tgnz"], ["i", "1dj72rnP60FIeWbnv-aIi-mXeXSC1P3fT"], ["v", "1Cha7mxiSnoCntNye4YdggWo1oJdWmzoj"], ["i", "1oIJhf4CxpevCo-aOt8ZVQ0LMHRiG9hBN"], ["i", "1cl3sOBR7B1Weagb2RkB1kA0OX4hZEDxS"], ["i", "1oYVo9clNmcOBKKCVJXTlm0NrGP7_GpNk"], ["i", "1CWmp1eN4S9QbPX-BjmFYpI5bq84KyNbv"], ["i", "1rkG9y-Aa1JvRwH8G4w44HFfBmeIeB563"], ["i", "11FddPpScb-0wG_mD1VMBciy4T4eweMTE"], ["v", "1NcXyHrd2IXOjfwFgGHtRoPSXan-R_WlO"], ["i", "1kji4CT1X3qhPdVjzSVdOLnmaiv7DE_mi"], ["i", "1v4kII4-Goh6mzc86ALaiJGDbhY7MSEjj"], ["i", "18C27Z4JXKVPJV7tsgCBUfg-q-4k05LH5"], ["i", "1yhrVPLVYRSJ1EeV9DOaHiVcVHuSDfgO0"], ["v", "1srJad_7MflW4Uq3mHRe4os9mz1Tdohst"], ["i", "1JWtPDbfVsjUUrRD3H_yvWTH5m73AsgQn"], ["i", "1JVrrsaTj6mi9v9ztUo8ehXyth5VavI_w"], ["i", "1g1OaCFF5HrFd3-kpUJ0asiubpKlMmPyM"], ["i", "1-uFSEnyqkx06uqGaV1ksC4yTM0torbn0"], ["i", "1XOlSzkZOYMzum98w-P9Kid6wdBPWNaOB"], ["i", "1PE45pBNkBsZ4Rl9QdVVz3sprH3HgQxrX"], ["i", "1AuwXlTuDSZVHcrUU7Z6ToJgg-eECLTYl"], ["i", "1-9x8rE8XV6OiiV-06LOckPORrSgHvMRE"], ["i", "1iXQ-OfBxbK41vD0svybjHXB5qPj4B97e"], ["i", "1df0TSbTDAXrTV2HdH-LjKOpqmfGxkvsI"], ["i", "1iueltrU-AqnyFdVyRpFYBFRPE7dTlVQo"], ["i", "12HG3nDaq5aUrv04wAJdxQx94DjyWTx_G"]], SHOW = 8;
+  var g = $('tmGrid'), more = $('tmMore'), lb = $('tm-lb'), box = $('tm-box');
+  function render(T) {
+    if (!g) return;
+    g.innerHTML = '';
+    T.forEach(function (t, n) {
+      var b = document.createElement('button'); b.type = 'button'; b.className = 'tm' + (t[0] === 'v' ? ' vid' : '');
+      b.dataset.t = t[0]; b.dataset.id = t[1];
+      b.setAttribute('aria-label', (t[0] === 'v' ? 'Putar video testimoni ' : 'Lihat testimoni ') + (n + 1));
+      if (n >= SHOW) b.hidden = true;
+      var im = document.createElement('img'); im.loading = 'lazy'; im.alt = 'Testimoni anggota Tradoor ' + (n + 1);
+      im.src = 'https://drive.google.com/thumbnail?id=' + t[1] + '&sz=w480';
+      im.onerror = function () { b.hidden = true; };
+      b.appendChild(im); g.appendChild(b);
     });
-    g.appendChild(b);
+    if (more && more.parentNode) more.parentNode.hidden = T.length <= SHOW;
+  }
+  if (g) g.addEventListener('click', function (e) {
+    var b = e.target.closest('.tm'); if (!b || !lb || !box) return;
+    var id = b.dataset.id; if (!id) return;
+    box.innerHTML = '';
+    if (b.dataset.t === 'v') { var f = document.createElement('iframe'); f.src = 'https://drive.google.com/file/d/' + id + '/preview'; f.allow = 'autoplay; fullscreen'; f.allowFullscreen = true; box.appendChild(f); }
+    else { var i2 = document.createElement('img'); i2.src = 'https://drive.google.com/thumbnail?id=' + id + '&sz=w1200'; i2.alt = 'Testimoni anggota Tradoor'; box.appendChild(i2); }
+    lb.hidden = false;
   });
-  if (T.length <= SHOW) more.parentNode.hidden = true;
-  more.addEventListener('click', function () { g.querySelectorAll('.tm[hidden]').forEach(function (e) { e.hidden = false; }); more.parentNode.hidden = true; });
-  function close() { lb.hidden = true; box.innerHTML = ''; }
-  document.getElementById('tm-x').addEventListener('click', close);
-  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
-  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) close(); });
+  if (more) more.addEventListener('click', function () { if (g) g.querySelectorAll('.tm[hidden]').forEach(function (e) { e.hidden = false; }); if (more.parentNode) more.parentNode.hidden = true; });
+  function close() { if (lb) lb.hidden = true; if (box) box.innerHTML = ''; }
+  var x = $('tm-x'); if (x) x.addEventListener('click', close);
+  if (lb) lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && lb && !lb.hidden) close(); });
+  window.__renderTm = render;
+  if (!baked) render(DEFAULT_TM);
+})();
+</script>
+<script>
+(function () {
+  var $ = function (i) { return document.getElementById(i); };
+  var TK = 'tradoor_admin', HASH = 'b8129bf883c40dd08f7a957a2929d0eb5ce354470e05ac7bcf38124a655a0fd0';
+  var root = document.documentElement;
+  var editing = false, sel = null, dirty = false, bar = null, fileIn = null, init = {};
+  var LEAF = 'h1,h2,h3,p,li,small,summary,.eyebrow,a.btn,b,strong,em,.roles span,.stats span,.note-item span,.adv-role,.brand,.nav ul a,.tv-foot';
+  var BLOCKS = 'h1,h2,h3,p,div,ul,ol,li,section,form,figure,details,img,svg,input,select,textarea,button';
+  var BLOCKSEL = '.feat,.pt,.box,.tv-card,.note-item,details,li,figure,.stats > div,.movers > div,.cta,.hero,section,.band,.dark,.tm,.logo-box,.roles,form';
+  var SKIP = '#admin,#edBar,#tm-lb,form,.tradingview-widget-container';
+
+  function sha(t) {
+    return crypto.subtle.digest('SHA-256', new TextEncoder().encode(t)).then(function (b) {
+      return Array.prototype.map.call(new Uint8Array(b), function (x) { return x.toString(16).padStart(2, '0'); }).join('');
+    });
+  }
+  function show(el, msg, ok) { if (!el) return; el.textContent = msg; el.classList.add('show'); el.style.borderLeftColor = ok === false ? '#a3321f' : ''; }
+  function driveId(x) {
+    var m = /\/d\/([\w-]{10,})/.exec(x) || /[?&]id=([\w-]{10,})/.exec(x) || /^([\w-]{10,})$/.exec(x);
+    return m ? m[1] : '';
+  }
+  function imgUrl(x) {
+    x = (x || '').trim(); if (!x) return '';
+    var id = driveId(x);
+    if (id && /drive\.google|^[\w-]{10,}$/.test(x)) return 'https://drive.google.com/thumbnail?id=' + id + '&sz=w900';
+    return /^https:\/\//.test(x) ? x : '';
+  }
+
+  /* ---------- mode edit ---------- */
+  function enableEditing() {
+    document.querySelectorAll(LEAF).forEach(function (el) {
+      if (el.closest(SKIP)) return;
+      if (el.parentElement && el.parentElement.closest('[contenteditable="true"]')) return;
+      if (el.querySelector(BLOCKS)) return;
+      el.setAttribute('contenteditable', 'true'); el.setAttribute('spellcheck', 'false'); el.setAttribute('data-ed', '1');
+    });
+  }
+  function disableEditing() {
+    document.querySelectorAll('[data-ed]').forEach(function (el) { el.removeAttribute('contenteditable'); el.removeAttribute('spellcheck'); el.removeAttribute('data-ed'); });
+  }
+  function select(el) {
+    if (sel) sel.classList.remove('ed-sel');
+    sel = el || null;
+    if (sel) sel.classList.add('ed-sel');
+    updateBar();
+  }
+  function targetImg() { if (!sel) return null; return sel.tagName === 'IMG' ? sel : sel.querySelector('img'); }
+  function mark() { dirty = true; }
+
+  function buildBar() {
+    bar = document.createElement('div'); bar.id = 'edBar';
+    bar.innerHTML =
+      '<div class="ed-row" id="edInfo">Ketuk teks untuk mengedit. Ketuk bagian lain untuk memilihnya.</div>' +
+      '<div class="ed-row">' +
+      '<button data-a="parent">&#8593; Induk</button><button data-a="up">Naik</button><button data-a="down">Turun</button>' +
+      '<button data-a="bold"><b>B</b></button><button data-a="italic"><i>I</i></button>' +
+      '<button data-a="smaller">A&minus;</button><button data-a="bigger">A+</button>' +
+      '<button data-a="left">Kiri</button><button data-a="center">Tengah</button><button data-a="right">Kanan</button>' +
+      '<label class="ed-c">Teks<input type="color" id="edCol" value="#1d1b17"></label>' +
+      '<label class="ed-c">Latar<input type="color" id="edBg" value="#ffffff"></label>' +
+      '<button data-a="link" id="edLink">Link</button>' +
+      '<button data-a="imgup" id="edImgUp">Ganti foto</button><button data-a="imgurl" id="edImgUrl">Foto dari link</button>' +
+      '<button data-a="addtext">+ Teks</button><button data-a="addhead">+ Judul</button><button data-a="addbtn">+ Tombol</button><button data-a="addimg">+ Foto</button>' +
+      '<button data-a="dup">Duplikat</button><button data-a="del" class="ed-danger">Hapus</button>' +
+      '<button data-a="done" class="ed-done">Selesai</button>' +
+      '</div>';
+    document.body.appendChild(bar);
+    fileIn = document.createElement('input'); fileIn.type = 'file'; fileIn.accept = 'image/*'; fileIn.style.display = 'none';
+    document.body.appendChild(fileIn);
+    bar.addEventListener('mousedown', function (e) { if (e.target.tagName !== 'INPUT') e.preventDefault(); });
+    bar.addEventListener('click', function (e) { var b = e.target.closest('button[data-a]'); if (b) act(b.dataset.a); });
+    $('edCol').addEventListener('input', function (e) { if (sel) { sel.style.color = e.target.value; mark(); } });
+    $('edBg').addEventListener('input', function (e) { if (sel) { sel.style.background = e.target.value; mark(); } });
+    fileIn.addEventListener('change', function () {
+      var f = fileIn.files && fileIn.files[0]; fileIn.value = '';
+      if (!f) return;
+      readImg(f, function (data) { var im = targetImg(); if (im) { im.src = data; im.removeAttribute('srcset'); mark(); } });
+    });
+  }
+  function updateBar() {
+    if (!bar) return;
+    var im = targetImg();
+    $('edImgUp').style.display = im ? '' : 'none';
+    $('edImgUrl').style.display = im ? '' : 'none';
+    $('edLink').style.display = sel && sel.closest('a') ? '' : 'none';
+    var info = $('edInfo');
+    if (!sel) { info.textContent = 'Ketuk teks untuk mengedit. Ketuk bagian lain untuk memilihnya.'; return; }
+    var n = sel.tagName.toLowerCase() + (sel.className && typeof sel.className === 'string' ? '.' + sel.className.replace(/\s*ed-sel\s*/, ' ').trim().split(/\s+/)[0] : '');
+    info.textContent = 'Dipilih: ' + n.replace(/\.$/, '');
+  }
+  function readImg(file, cb) {
+    var fr = new FileReader();
+    fr.onload = function () {
+      var im = new Image();
+      im.onload = function () {
+        var png = file.type === 'image/png', max = png ? 800 : 1000, r = Math.min(1, max / Math.max(im.width, im.height));
+        var c = document.createElement('canvas'); c.width = Math.round(im.width * r); c.height = Math.round(im.height * r);
+        c.getContext('2d').drawImage(im, 0, 0, c.width, c.height);
+        cb(png ? c.toDataURL('image/png') : c.toDataURL('image/jpeg', 0.82));
+      };
+      im.src = fr.result;
+    };
+    fr.readAsDataURL(file);
+  }
+  function afterInsert(el) { enableEditing(); select(el); mark(); try { el.scrollIntoView({ block: 'center', behavior: 'smooth' }); } catch (e) {} }
+  function insertAfter(newEl) {
+    var main = document.querySelector('main');
+    var ref = sel || main.lastElementChild;
+    if (ref.closest('#admin')) ref = document.querySelector('#faq') || main.firstElementChild;
+    if (ref.parentElement === main) {
+      var s = document.createElement('section'); s.className = 'sec wrap'; s.appendChild(newEl);
+      ref.parentNode.insertBefore(s, ref.nextSibling);
+    } else ref.parentNode.insertBefore(newEl, ref.nextSibling);
+    afterInsert(newEl);
+  }
+  function act(a) {
+    if (a === 'done') { exitEdit(); return; }
+    var needSel = ['parent', 'up', 'down', 'bold', 'italic', 'smaller', 'bigger', 'left', 'center', 'right', 'link', 'imgup', 'imgurl', 'dup', 'del'];
+    if (needSel.indexOf(a) > -1 && !sel) { $('edInfo').textContent = 'Pilih dulu bagian yang mau diubah dengan mengetuknya.'; return; }
+    var main = document.querySelector('main');
+    if (a === 'parent') { var p = sel.parentElement; if (p && p !== main && p !== document.body && !p.matches('#admin')) select(p); }
+    else if (a === 'up') { var pr = sel.previousElementSibling; if (pr) { sel.parentNode.insertBefore(sel, pr); mark(); sel.scrollIntoView({ block: 'center' }); } }
+    else if (a === 'down') { var nx = sel.nextElementSibling; if (nx && !nx.matches('#admin')) { sel.parentNode.insertBefore(nx, sel); mark(); sel.scrollIntoView({ block: 'center' }); } }
+    else if (a === 'bold' || a === 'italic') {
+      var s = window.getSelection();
+      if (s && !s.isCollapsed && sel.contains(s.anchorNode)) document.execCommand(a);
+      else if (a === 'bold') sel.style.fontWeight = parseInt(getComputedStyle(sel).fontWeight, 10) >= 600 ? '400' : '700';
+      else sel.style.fontStyle = getComputedStyle(sel).fontStyle === 'italic' ? 'normal' : 'italic';
+      mark();
+    }
+    else if (a === 'bigger' || a === 'smaller') {
+      var f = a === 'bigger' ? 1.1 : 1 / 1.1, im = targetImg();
+      if (im && (sel === im || sel.tagName === 'FIGURE')) {
+        var w = im.getBoundingClientRect().width; im.style.width = Math.round(w * f) + 'px'; im.style.height = 'auto'; im.style.maxWidth = '100%';
+      } else {
+        var cs = parseFloat(getComputedStyle(sel).fontSize), ps = parseFloat(getComputedStyle(sel.parentElement || sel).fontSize) || 16;
+        sel.style.fontSize = (cs * f / ps).toFixed(3) + 'em';
+      }
+      mark();
+    }
+    else if (a === 'left' || a === 'center' || a === 'right') {
+      if (sel.tagName === 'IMG') { sel.style.display = 'block'; sel.style.margin = a === 'center' ? '0 auto' : a === 'right' ? '0 0 0 auto' : '0 auto 0 0'; }
+      else sel.style.textAlign = a;
+      mark();
+    }
+    else if (a === 'link') {
+      var an = sel.closest('a'); if (!an) return;
+      var v = prompt('Alamat link (contoh: https://wa.me/628123456789 atau #gabung)', an.getAttribute('href') || '');
+      if (v !== null) { an.setAttribute('href', v.trim()); mark(); }
+    }
+    else if (a === 'imgup') { if (targetImg()) fileIn.click(); }
+    else if (a === 'imgurl') {
+      var im2 = targetImg(); if (!im2) return;
+      var u = prompt('Tempel link foto (Google Drive atau link gambar https)', '');
+      if (u) { var url = imgUrl(u); if (url) { im2.src = url; mark(); } else alert('Link tidak dikenali. Pakai link Google Drive atau link gambar yang diawali https.'); }
+    }
+    else if (a === 'addtext') { var p1 = document.createElement('p'); p1.className = 'lead'; p1.style.maxWidth = 'none'; p1.textContent = 'Teks baru, ketuk untuk mengubah.'; insertAfter(p1); }
+    else if (a === 'addhead') { var h = document.createElement('h2'); h.textContent = 'Judul baru'; insertAfter(h); }
+    else if (a === 'addbtn') { var bt = document.createElement('a'); bt.className = 'btn'; bt.href = '#gabung'; bt.textContent = 'Tombol baru'; var w2 = document.createElement('div'); w2.className = 'cta'; w2.appendChild(bt); insertAfter(w2); }
+    else if (a === 'addimg') {
+      var ph = document.createElement('img'); ph.alt = 'Foto'; ph.style.maxWidth = '100%'; ph.style.display = 'block';
+      ph.src = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="600" height="400"><rect width="600" height="400" fill="#f7f4ec"/><text x="300" y="205" font-size="22" text-anchor="middle" fill="#85620c" font-family="sans-serif">Ketuk Ganti foto</text></svg>');
+      insertAfter(ph);
+    }
+    else if (a === 'dup') {
+      if (sel.querySelector('script,iframe') || sel.closest('#admin')) { $('edInfo').textContent = 'Bagian ini tidak bisa diduplikat.'; return; }
+      var c = sel.cloneNode(true); c.classList.remove('ed-sel');
+      if (c.removeAttribute) c.removeAttribute('id');
+      c.querySelectorAll('[id]').forEach(function (x) { x.removeAttribute('id'); });
+      sel.parentNode.insertBefore(c, sel.nextSibling); afterInsert(c);
+    }
+    else if (a === 'del') {
+      if (sel.closest('#admin') || sel.querySelector('#admin')) { $('edInfo').textContent = 'Bagian admin tidak bisa dihapus.'; return; }
+      if (confirm('Hapus bagian yang dipilih?')) { var o = sel; select(null); o.remove(); mark(); }
+    }
+  }
+  function onClickCapture(e) {
+    if (!editing) return;
+    if (e.target.closest('#edBar')) return;
+    if (e.target.closest('#admin')) return;
+    e.preventDefault(); e.stopPropagation();
+    var t = e.target;
+    var el = t.closest('[contenteditable="true"]') || t.closest('img') || t.closest(BLOCKSEL) || t;
+    if (el === document.body || el === root || el === document.querySelector('main')) { select(null); return; }
+    select(el);
+  }
+  function onKey(e) {
+    if (!editing) return;
+    if (e.key === ' ' && e.target.closest && e.target.closest('summary')) { e.preventDefault(); document.execCommand('insertText', false, ' '); }
+    if (e.key === 'Enter' && e.target.closest && e.target.closest('summary,a.btn,.brand')) e.preventDefault();
+  }
+  function enterEdit() {
+    if (editing) return;
+    editing = true; root.classList.add('ed-on');
+    document.querySelectorAll('details').forEach(function (d) { d.setAttribute('data-wo', d.open ? '1' : '0'); d.open = true; });
+    if (!bar) buildBar();
+    bar.style.display = 'block';
+    enableEditing(); select(null);
+    document.addEventListener('input', mark, true);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  function exitEdit() {
+    editing = false; root.classList.remove('ed-on');
+    select(null); disableEditing();
+    document.querySelectorAll('details[data-wo]').forEach(function (d) { d.open = d.getAttribute('data-wo') === '1'; d.removeAttribute('data-wo'); });
+    if (bar) bar.style.display = 'none';
+    document.removeEventListener('input', mark, true);
+    var s = $('admSave'); if (s) show(s, 'Mode edit ditutup. Klik Unduh index.html untuk menyimpan hasilnya.', true);
+    var a = $('admin'); if (a) a.scrollIntoView({ behavior: 'smooth' });
+  }
+  document.addEventListener('click', onClickCapture, true);
+  document.addEventListener('keydown', onKey, true);
+  window.addEventListener('beforeunload', function (e) { if (dirty) { e.preventDefault(); e.returnValue = ''; } });
+
+  /* ---------- panel pengaturan ---------- */
+  function notesFromDom() {
+    return Array.prototype.map.call(document.querySelectorAll('#notes .note-item'), function (n) {
+      var b = n.querySelector('b'), s = n.querySelector('span'), p = n.querySelector('p');
+      return [s ? s.textContent : '', b ? b.textContent : '', p ? p.textContent : ''].map(function (x) { return x.trim(); }).join(' | ');
+    }).join('\n');
+  }
+  function tmFromDom() {
+    return Array.prototype.map.call(document.querySelectorAll('#tmGrid .tm'), function (b) { return (b.dataset.t === 'v' ? 'v:' : '') + (b.dataset.id || ''); }).filter(function (x) { return x.replace('v:', ''); }).join('\n');
+  }
+  function fillPanel() {
+    var wa = (String(window.JOIN_LINK || '').match(/wa\.me\/(\d+)/) || [])[1] || '';
+    init = { wa: wa, notes: notesFromDom(), tm: tmFromDom() };
+    $('fWa').value = init.wa; $('fNotes').value = init.notes; $('fTm').value = init.tm;
+  }
+  function applyPanel() {
+    var wa = $('fWa').value.replace(/\D/g, '');
+    if (wa && wa !== init.wa) {
+      var base = 'https://wa.me/' + wa;
+      document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function (a) { a.setAttribute('href', base); });
+      window.JOIN_LINK = base; window.LOKER_LINK = base;
+      var lb = $('lokerBtn'); if (lb) lb.setAttribute('href', base + '?text=' + encodeURIComponent('Halo, saya tertarik bergabung dengan tim Tradoor (karir).'));
+      mark();
+    }
+    var nv = $('fNotes').value.trim();
+    if (nv !== init.notes.trim()) {
+      var box = $('notes');
+      if (box) {
+        box.innerHTML = '';
+        var list = nv.split('\n').map(function (x) { return x.trim(); }).filter(Boolean).map(function (l) {
+          var a = l.split('|').map(function (x) { return x.trim(); });
+          if (a.length === 1) return { waktu: '', judul: a[0], catatan: '' };
+          if (a.length === 2) return { waktu: a[0], judul: a[1], catatan: '' };
+          return { waktu: a[0], judul: a[1], catatan: a.slice(2).join(' | ') };
+        });
+        if (!list.length) { var p0 = document.createElement('p'); p0.textContent = 'Belum ada catatan. Admin akan menandai rilis penting di sini sebelum waktunya.'; box.appendChild(p0); }
+        list.forEach(function (n) {
+          var d = document.createElement('div'); d.className = 'note-item';
+          var b = document.createElement('b'); b.textContent = n.judul;
+          var s = document.createElement('span'); s.textContent = n.waktu;
+          var p = document.createElement('p'); p.textContent = n.catatan;
+          d.appendChild(b); d.appendChild(s); d.appendChild(p); box.appendChild(d);
+        });
+        mark();
+      }
+    }
+    var tv = $('fTm').value.trim();
+    if (tv !== init.tm.trim() && window.__renderTm) {
+      var tm = tv.split('\n').map(function (x) { return x.trim(); }).filter(Boolean).map(function (l) {
+        var vid = /^v:/i.test(l); if (vid) l = l.slice(2).trim();
+        return [vid ? 'v' : 'i', driveId(l)];
+      }).filter(function (t) { return t[1]; });
+      window.__renderTm(tm); mark();
+    }
+    fillPanel();
+  }
+
+  /* ---------- simpan (unduh) ---------- */
+  function buildHtml() {
+    var was = editing; if (was) { select(null); disableEditing(); }
+    var clone = root.cloneNode(true);
+    if (was) enableEditing();
+    ['#edBar', '#edInfo'].forEach(function (q) { var x = clone.querySelector(q); if (x) x.remove(); });
+    clone.querySelectorAll('input[type=file]').forEach(function (x) { if (!x.closest('form')) x.remove(); });
+    clone.classList.remove('ed-on');
+    clone.querySelectorAll('details[data-wo]').forEach(function (d) { if (d.getAttribute('data-wo') === '0') d.removeAttribute('open'); d.removeAttribute('data-wo'); });
+    clone.querySelectorAll('.ed-sel').forEach(function (x) { x.classList.remove('ed-sel'); if (!x.getAttribute('class')) x.removeAttribute('class'); });
+    clone.querySelectorAll('[contenteditable],[data-ed]').forEach(function (x) { x.removeAttribute('contenteditable'); x.removeAttribute('spellcheck'); x.removeAttribute('data-ed'); });
+    var lg = clone.querySelector('#admLogin'); if (lg) lg.style.display = '';
+    var dash = clone.querySelector('#admDash'); if (dash) dash.classList.remove('show');
+    var tt = clone.querySelector('#admTitle'); if (tt) tt.textContent = 'Login admin';
+    ['admMsg', 'admSave'].forEach(function (id) { var x = clone.querySelector('#' + id); if (x) { x.classList.remove('show'); x.textContent = ''; x.removeAttribute('style'); } });
+    var pw = clone.querySelector('#admP'); if (pw) pw.removeAttribute('value');
+    var un = clone.querySelector('#admU'); if (un) un.removeAttribute('value');
+    clone.querySelectorAll('.tradingview-widget-container').forEach(function (c) {
+      Array.prototype.slice.call(c.children).forEach(function (ch) {
+        if (!(ch.tagName === 'SCRIPT' || ch.classList.contains('tradingview-widget-container__widget'))) ch.remove();
+      });
+      var w = c.querySelector('.tradingview-widget-container__widget'); if (w) w.innerHTML = '';
+    });
+    var cfgEl = clone.querySelector('#tradoor-cfg');
+    if (cfgEl) {
+      var t = cfgEl.textContent;
+      t = t.replace(/var JOIN_LINK = "[^"]*"/, function () { return 'var JOIN_LINK = ' + JSON.stringify(String(window.JOIN_LINK || '')); });
+      t = t.replace(/var LOKER_LINK = "[^"]*"/, function () { return 'var LOKER_LINK = ' + JSON.stringify(String(window.LOKER_LINK || '')); });
+      cfgEl.textContent = t;
+    }
+    clone.setAttribute('data-baked', '1');
+    return '<!doctype html>\n' + clone.outerHTML;
+  }
+  function download() {
+    try {
+      var html = buildHtml();
+      var url = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
+      var a = document.createElement('a'); a.href = url; a.download = 'index.html'; document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function () { URL.revokeObjectURL(url); }, 3000);
+      dirty = false;
+      show($('admSave'), 'index.html baru sudah diunduh. Unggah file itu ke Cloudflare Pages untuk mempublikasikan.', true);
+    } catch (err) { show($('admSave'), 'Gagal menyiapkan file: ' + err.message, false); }
+  }
+
+  /* ---------- login ---------- */
+  function enter() {
+    $('admLogin').style.display = 'none'; $('admDash').classList.add('show'); $('admTitle').textContent = 'Dashboard admin';
+    fillPanel();
+  }
+  function leave() {
+    if (editing) exitEdit();
+    sessionStorage.removeItem(TK);
+    $('admDash').classList.remove('show'); $('admLogin').style.display = ''; $('admTitle').textContent = 'Login admin';
+    $('admP').value = ''; $('admMsg').classList.remove('show');
+  }
+  $('admLogin').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var u = $('admU').value.trim(), p = $('admP').value;
+    if (!u || !p) { show($('admMsg'), 'Isi username dan password.', false); return; }
+    if (!(window.crypto && crypto.subtle)) { show($('admMsg'), 'Browser tidak mendukung. Buka lewat alamat https.', false); return; }
+    sha('tradoor|' + u + '|' + p).then(function (h) {
+      if (h !== HASH) { show($('admMsg'), 'Username atau password salah.', false); return; }
+      sessionStorage.setItem(TK, '1'); $('admMsg').classList.remove('show'); $('admP').value = ''; enter();
+    });
+  });
+  $('admForm').addEventListener('submit', function (e) { e.preventDefault(); applyPanel(); show($('admSave'), 'Pengaturan diterapkan di halaman ini. Klik Unduh index.html untuk menyimpan.', true); });
+  $('edStart').addEventListener('click', enterEdit);
+  $('admDl').addEventListener('click', download);
+  $('admOut').addEventListener('click', leave);
+  if (sessionStorage.getItem(TK)) enter();
 })();
 </script>
 </body>
